@@ -98,6 +98,16 @@ npm run vercel-build # copies web/ into public/
 
 Latest production deployment: https://the-brief-ppzstfb4i-nkaringas-projects.vercel.app
 
+### Automated news refresh
+
+A GitHub Actions workflow (`.github/workflows/refresh-news.yml`) runs every 6 hours (and on manual dispatch) to:
+
+1. Install `feedparser`
+2. Execute `python scraper/scraper.py`
+3. Commit/push updated `data/news.json` + `web/data/news.json` back to `main`
+
+Each push from the workflow automatically triggers a new Vercel deployment, so the live site stays within ~6 hours of the latest feeds.
+
 ### Front-end features worth knowing
 
 - **Ticker** duplicates its content for a seamless scroll and pauses on hover.
