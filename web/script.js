@@ -199,7 +199,7 @@ if (newsEl) {
         </div>`;
 }
 
-fetch('../data/news.json')
+fetch('data/news.json')
     .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();

@@ -32,9 +32,16 @@ output = {
 
 # Correct path handling
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(BASE_DIR, "../data/news.json")
+OUTPUT_PATHS = [
+    os.path.join(BASE_DIR, "../data/news.json"),
+    os.path.join(BASE_DIR, "../web/data/news.json"),
+]
 
-with open(DATA_PATH, "w") as f:
-    json.dump(output, f, indent=2)
+serialized = json.dumps(output, indent=2)
+
+for path in OUTPUT_PATHS:
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    with open(path, "w") as f:
+        f.write(serialized)
 
 print("News updated successfully.")
