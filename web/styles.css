@@ -15,6 +15,10 @@
     --border:       #E2DDD5;
     --border-light: #EDE9E2;
 
+    --surface-inverse:      #141210;
+    --text-on-inverse:      rgba(255, 255, 255, 0.65);
+    --text-on-inverse-dim:  rgba(255, 255, 255, 0.35);
+
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-serif:   'Source Serif 4', Georgia, serif;
     --font-sans:    'DM Sans', system-ui, sans-serif;
@@ -22,6 +26,47 @@
     --max-w:  1260px;
     --pad-x:  clamp(20px, 5vw, 72px);
     --radius: 3px;
+}
+
+/* ─── DARK MODE TOKENS ─── */
+[data-theme="dark"] {
+    --ink:          #E8E4DE;
+    --ink-2:        #C4BFB8;
+    --ink-3:        #8A8480;
+    --ink-4:        #5C5854;
+
+    --paper:        #1A1816;
+    --white:        #242220;
+    --border:       #2E2C29;
+    --border-light: #272523;
+
+    --red-tint:     rgba(200, 16, 46, 0.12);
+    --red-border:   rgba(200, 16, 46, 0.25);
+
+    --surface-inverse:      #0D0B0A;
+    --text-on-inverse:      rgba(255, 255, 255, 0.55);
+    --text-on-inverse-dim:  rgba(255, 255, 255, 0.28);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --ink:          #E8E4DE;
+        --ink-2:        #C4BFB8;
+        --ink-3:        #8A8480;
+        --ink-4:        #5C5854;
+
+        --paper:        #1A1816;
+        --white:        #242220;
+        --border:       #2E2C29;
+        --border-light: #272523;
+
+        --red-tint:     rgba(200, 16, 46, 0.12);
+        --red-border:   rgba(200, 16, 46, 0.25);
+
+        --surface-inverse:      #0D0B0A;
+        --text-on-inverse:      rgba(255, 255, 255, 0.55);
+        --text-on-inverse-dim:  rgba(255, 255, 255, 0.28);
+    }
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,6 +77,7 @@ body {
     color: var(--ink);
     font-family: var(--font-sans);
     line-height: 1.6;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 
@@ -49,8 +95,8 @@ body {
 }
 
 .ticker-label {
-    background: var(--ink);
-    color: #fff;
+    background: var(--surface-inverse);
+    color: var(--text-on-inverse);
     font-family: var(--font-sans);
     font-size: 10px;
     font-weight: 700;
@@ -121,6 +167,41 @@ body {
 .ticker-sep {
     margin: 0 20px;
     opacity: 0.35;
+}
+
+
+/* ─── THEME TOGGLE ─── */
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 8px;
+    cursor: pointer;
+    color: var(--ink-3);
+    display: flex;
+    align-items: center;
+    transition: color 0.14s, border-color 0.14s, background 0.14s;
+    line-height: 0;
+}
+
+.theme-toggle:hover {
+    color: var(--ink);
+    border-color: var(--ink-3);
+}
+
+.theme-icon { width: 14px; height: 14px; }
+
+/* Light mode: show moon (click to go dark). Dark mode: show sun (click to go light). */
+.theme-icon--sun  { display: none; }
+.theme-icon--moon { display: block; }
+
+[data-theme="dark"] .theme-icon--sun  { display: block; }
+[data-theme="dark"] .theme-icon--moon { display: none; }
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-icon--sun  { display: block; }
+    :root:not([data-theme="light"]) .theme-icon--moon { display: none; }
 }
 
 
@@ -532,7 +613,7 @@ main {
 /* ─── FOOTER ─── */
 
 footer {
-    background: var(--ink);
+    background: var(--surface-inverse);
     padding: 22px var(--pad-x);
 }
 
@@ -547,7 +628,7 @@ footer {
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--text-on-inverse-dim);
 }
 
 .footer-brand {
@@ -555,7 +636,7 @@ footer {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.65);
+    color: var(--text-on-inverse);
     text-transform: none;
 }
 
