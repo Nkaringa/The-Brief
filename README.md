@@ -2,6 +2,12 @@
 
 A two-part news digest that (1) scrapes curated Google News RSS feeds into a structured JSON file and (2) renders a magazine-style front end called **The Brief**. Use it to produce a lightweight mini paper that can be refreshed on demand or on a schedule.
 
+## Live
+
+The application is accessible at:
+
+https://news.npalakurla.com
+
 ## Repository layout
 
 ```
@@ -132,4 +138,4 @@ Each push from the workflow automatically triggers a new Vercel deployment, so t
 - Add Telegram bot hooks using `telegram_config.json` (currently absent) if chat delivery is needed.
 - Deploy the static site + JSON to a CDN / S3 bucket with a serverless refresh job.
 
-Thats everything the current codebase supports. Run the scraper, host the `web/` folder, and The Brief is live.
+That's everything the current codebase supports. Run the scraper, host the `web/` folder, and The Brief is live.
