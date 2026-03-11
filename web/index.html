@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+    <title>The Brief — Daily News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Scrolling Ticker -->
+    <div class="ticker-bar">
+        <div class="ticker-label">
+            <span class="live-dot"></span>LIVE
+        </div>
+        <div class="ticker-track">
+            <div class="ticker-scroll" id="ticker-scroll">
+                <!-- populated by script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top-row">
+            <span id="header-date">—</span>
+            <span class="edition-label">Daily Edition</span>
+        </div>
+        <div class="header-masthead">
+            <div class="rule-line"></div>
+            <h1>THE BRIEF</h1>
+            <div class="rule-line"></div>
+        </div>
+        <p class="tagline">Intelligence · Curated Daily</p>
+        <div class="header-red-bar"></div>
+    </header>
+
+    <!-- Filter Navigation -->
+    <nav class="filter-nav" id="filter-nav">
+        <div class="filter-inner">
+            <span class="filter-eyebrow">Section</span>
+            <div class="filter-pills" id="filter-pills">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <!-- additional category buttons injected by JS -->
+            </div>
+            <div class="search-wrap">
+                <svg class="search-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+                    <line x1="10" y1="10" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <input type="search" id="search-input" class="search-input" placeholder="Search headlines…" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <div class="news-grid" id="news"></div>
+        <div class="no-results hidden" id="no-results">
+            <p class="no-results-icon">◎</p>
+            <p class="no-results-msg">No headlines match your search</p>
+        </div>
+        <div class="error-state hidden" id="error">
+            <p class="error-code">503</p>
+            <p class="error-msg">News feed unavailable</p>
+            <code>python3 scraper/scraper.py</code>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">THE BRIEF</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

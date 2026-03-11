@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.log
+.venv/
+
+# Editors / tooling
+.vscode/
+.idea/
+.DS_Store
+
+# Claude agent artifacts
+.claude/
