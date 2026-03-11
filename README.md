@@ -26,7 +26,7 @@ news-app/
    - Writes the payload plus a timestamp into `data/news.json`.
 
 2. **Client (static web app)**
-   - `web/index.html` loads `web/script.js`, which fetches `../data/news.json`.
+   - `web/index.html` loads `web/script.js`, which fetches `data/news.json` (the scraper now mirrors data into `web/data/news.json` so the static bundle stays self-contained).
    - Headlines populate:
      - A live ticker marquee.
      - Category cards with counts, numbering, and outbound links.
@@ -71,7 +71,32 @@ cd /home/agent/Projects/news-app/web
 python -m http.server 8000
 ```
 
-Then browse to <http://localhost:8000>. Because `script.js` issues a relative fetch (`../data/news.json`), run the server from within `web/` so the parent `data/` folder is reachable.
+Then browse to <http://localhost:8000>. Because `script.js` issues a relative fetch (`data/news.json`), run the server from within `web/` so the sibling `data/` folder is reachable.
+
+## Build & deployment
+
+### Local build artifact
+
+```bash
+npm install          # already done in the repo
+npm run vercel-build # copies web/ into public/
+```
+
+- The build script lives at `scripts/build.js` and simply mirrors `web/` (including `web/data/news.json`) into a throwaway `public/` directory.
+- `public/` is git-ignored; it only exists so hosting platforms expecting a single output directory (like Vercel) can pick up static assets.
+
+### Vercel
+
+- Project: [`nkaringas-projects/the-brief`](https://vercel.com/nkaringas-projects/the-brief)
+- Build command: `npm run vercel-build`
+- Output directory: `public`
+- GitHub integration: `Nkaringa/The-Brief` (push to `main` → deploy)
+- Manual trigger (if needed):
+  ```bash
+  vercel deploy --prod --yes
+  ```
+
+Latest production deployment: https://the-brief-ppzstfb4i-nkaringas-projects.vercel.app
 
 ### Front-end features worth knowing
 
