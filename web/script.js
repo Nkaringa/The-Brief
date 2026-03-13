@@ -61,21 +61,16 @@ function parseDate(dateStr) {
 }
 
 const DISPLAY_TIME_ZONE = 'America/Indiana/Indianapolis';
+let footerClockTimer = null;
 
-function formatFooterTime(dateStr) {
-    const date = parseDate(dateStr);
-    if (!date) return dateStr;
-
-    const slot = new Date(date);
-    slot.setUTCMinutes(0, 0, 0);
-    slot.setUTCHours(Math.floor(slot.getUTCHours() / 6) * 6);
-
-    return slot.toLocaleString('en-US', {
+function formatLiveTime(date = new Date()) {
+    return date.toLocaleString('en-US', {
         timeZone: DISPLAY_TIME_ZONE,
         month: 'short',
         day: 'numeric',
         hour: 'numeric',
         minute: '2-digit',
+        second: '2-digit',
         hour12: true,
         timeZoneName: 'short'
     });
@@ -91,16 +86,33 @@ function formatFooterUpdated(dateStr) {
         day: 'numeric',
         hour: 'numeric',
         minute: '2-digit',
+        second: '2-digit',
         hour12: true,
         timeZoneName: 'short'
     });
 }
 
-function updateFooterTimes(dateStr) {
+function startFooterClock() {
     const footerTime = document.getElementById('footer-time');
+    if (!footerTime) return;
+
+    const render = () => {
+        footerTime.textContent = formatLiveTime();
+    };
+
+    render();
+
+    if (footerClockTimer !== null) {
+        clearInterval(footerClockTimer);
+    }
+
+    footerClockTimer = setInterval(render, 1000);
+}
+
+function updateFooterTimes(dateStr) {
     const footerTimeUpdated = document.getElementById('footer-time-updated');
 
-    if (footerTime) footerTime.textContent = formatFooterTime(dateStr);
+    startFooterClock();
     if (footerTimeUpdated) footerTimeUpdated.textContent = formatFooterUpdated(dateStr);
 }
 
