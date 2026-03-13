@@ -143,6 +143,114 @@ function buildTicker(newsData) {
 }
 
 
+// ─── MARKET TICKER ────────────────────────────────────────────
+
+const MARKET_STORAGE_KEY = 'market-symbols';
+
+function getEnabledSymbols(allSymbols) {
+    try {
+        const saved = localStorage.getItem(MARKET_STORAGE_KEY);
+        if (saved) {
+            const arr = JSON.parse(saved);
+            if (Array.isArray(arr) && arr.length > 0) return new Set(arr);
+        }
+    } catch {}
+    return new Set(allSymbols.map(s => s.symbol));
+}
+
+function saveEnabledSymbols(enabledSet) {
+    try { localStorage.setItem(MARKET_STORAGE_KEY, JSON.stringify([...enabledSet])); } catch {}
+}
+
+function formatMarketItem(sym) {
+    const sign  = sym.change > 0 ? '+' : '';
+    const dir   = sym.change > 0 ? 'up' : sym.change < 0 ? 'dn' : 'flat';
+    const arrow = sym.change > 0 ? '▲' : sym.change < 0 ? '▼' : '–';
+    return `<span class="market-item">` +
+        `<span class="market-symbol">${escapeHtml(sym.symbol)}</span>` +
+        `<span class="market-price">$${escapeHtml(sym.price.toFixed(2))}</span>` +
+        `<span class="market-change ${dir}">${arrow} ${sign}${escapeHtml(sym.change_pct.toFixed(2))}%</span>` +
+        `</span><span class="market-sep" aria-hidden="true">◆</span>`;
+}
+
+function buildMarketTicker(allSymbols, enabledSet) {
+    const scroll = document.getElementById('market-ticker-scroll');
+    if (!scroll) return;
+
+    const visible = allSymbols.filter(s => enabledSet.has(s.symbol));
+    if (visible.length === 0) { scroll.innerHTML = ''; return; }
+
+    const html = visible.map(formatMarketItem).join('');
+    scroll.innerHTML = html + html; // duplicate for seamless loop
+
+    requestAnimationFrame(() => {
+        const w = scroll.scrollWidth / 2;
+        const duration = Math.max(20, w / 80); // ~80px/s
+        scroll.style.animationDuration = `${duration}s`;
+    });
+}
+
+function buildMarketPicker(allSymbols, enabledSet) {
+    const list = document.getElementById('market-picker-list');
+    if (!list) return;
+    list.innerHTML = '';
+
+    allSymbols.forEach(sym => {
+        const row = document.createElement('div');
+        row.className = 'market-picker-row';
+        const id = `mkt-${sym.symbol}`;
+        const checked = enabledSet.has(sym.symbol) ? 'checked' : '';
+        row.innerHTML =
+            `<input type="checkbox" id="${escapeHtml(id)}" ${checked} data-symbol="${escapeHtml(sym.symbol)}">` +
+            `<label for="${escapeHtml(id)}">` +
+            `<span class="market-picker-sym">${escapeHtml(sym.symbol)}</span>` +
+            `<span>${escapeHtml(sym.name)}</span>` +
+            `</label>`;
+        list.appendChild(row);
+    });
+}
+
+function initMarketTicker(allSymbols) {
+    let enabledSet = getEnabledSymbols(allSymbols);
+    buildMarketTicker(allSymbols, enabledSet);
+    buildMarketPicker(allSymbols, enabledSet);
+
+    const btn    = document.getElementById('market-settings-btn');
+    const picker = document.getElementById('market-picker');
+    if (!btn || !picker) return;
+
+    btn.addEventListener('click', e => {
+        e.stopPropagation();
+        picker.hidden = !picker.hidden;
+    });
+
+    document.addEventListener('click', e => {
+        if (!picker.hidden && !picker.contains(e.target) && e.target !== btn) {
+            picker.hidden = true;
+        }
+    });
+
+    picker.addEventListener('change', e => {
+        const cb = e.target.closest('input[type="checkbox"]');
+        if (!cb) return;
+        const sym = cb.dataset.symbol;
+        if (cb.checked) enabledSet.add(sym);
+        else enabledSet.delete(sym);
+        saveEnabledSymbols(enabledSet);
+        buildMarketTicker(allSymbols, enabledSet);
+    });
+}
+
+fetch('data/markets.json')
+    .then(res => res.ok ? res.json() : null)
+    .then(data => {
+        if (data && Array.isArray(data.symbols) && data.symbols.length > 0) {
+            initMarketTicker(data.symbols);
+        }
+    })
+    .catch(() => {}); // market ticker is non-critical
+
+
 // ─── FILTER + SEARCH ──────────────────────────────────────────
 let activeFilter = 'all';
 let searchQuery  = '';
