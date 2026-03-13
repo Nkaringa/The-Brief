@@ -68,19 +68,15 @@
                 <!-- populated by script.js -->
             </div>
         </div>
-        <button class="market-settings-btn" id="market-settings-btn" aria-label="Customize market symbols" title="Customize symbols">
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.4"/>
-                <path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.93 2.93l1.41 1.41M11.66 11.66l1.41 1.41M2.93 13.07l1.41-1.41M11.66 4.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-        </button>
-        <div class="market-picker" id="market-picker" hidden>
-            <p class="market-picker-title">Add Symbols</p>
-            <div class="market-picker-search-wrap">
-                <input type="text" id="market-picker-input" class="market-picker-input"
-                    placeholder="Type to filter…" autocomplete="off" spellcheck="false" maxlength="10">
+        <button class="market-settings-btn" id="market-settings-btn" aria-label="Manage ticker symbols">⚙ Manage Ticker</button>
+        <div class="market-manager" id="market-manager" hidden>
+            <p class="market-manager-title">Manage Ticker</p>
+            <div class="market-manager-list" id="market-manager-list"></div>
+            <div class="market-manager-add-row">
+                <input type="text" id="market-manager-input" class="market-manager-input"
+                    placeholder="Symbol (e.g. AAPL)" autocomplete="off" spellcheck="false" maxlength="12">
+                <button id="market-manager-add-btn" class="market-manager-add-btn">Add</button>
             </div>
-            <div class="market-picker-list" id="market-picker-list"></div>
         </div>
     </div>
 
