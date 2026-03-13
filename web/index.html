@@ -42,8 +42,11 @@
             <p class="market-manager-title">Manage Ticker</p>
             <div class="market-manager-list" id="market-manager-list"></div>
             <div class="market-manager-add-row">
-                <input type="text" id="market-manager-input" class="market-manager-input"
-                    placeholder="Symbol (e.g. AAPL)" autocomplete="off" spellcheck="false" maxlength="12">
+                <div class="market-search-wrap">
+                    <input type="text" id="market-manager-input" class="market-manager-input"
+                        placeholder="Search or enter symbol" autocomplete="off" spellcheck="false" maxlength="40">
+                    <div class="market-search-dropdown" id="market-search-dropdown" hidden></div>
+                </div>
                 <button id="market-manager-add-btn" class="market-manager-add-btn">Add</button>
             </div>
         </div>

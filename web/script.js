@@ -237,11 +237,48 @@ function initMarketTicker() {
     const manager  = document.getElementById('market-manager');
     const addInput = document.getElementById('market-manager-input');
     const addBtn   = document.getElementById('market-manager-add-btn');
+    const dropdown = document.getElementById('market-search-dropdown');
     if (!btn || !manager) return;
+
+    let searchTimer = null;
 
     function refresh() {
         buildManagerList(symbols);
         fetchMarketQuotes(symbols).then(buildMarketTicker);
+    }
+
+    function hideDropdown() {
+        if (dropdown) dropdown.hidden = true;
+    }
+
+    function showDropdown(results) {
+        if (!dropdown) return;
+        if (!results || results.length === 0) { hideDropdown(); return; }
+        dropdown.innerHTML = '';
+        results.forEach(r => {
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'market-search-result';
+            item.textContent = `${r.name} (${r.symbol})`;
+            item.addEventListener('mousedown', e => {
+                e.preventDefault(); // keep input focused so blur doesn't fire first
+                addSymbolFromResult(r.symbol);
+            });
+            dropdown.appendChild(item);
+        });
+        dropdown.hidden = false;
+    }
+
+    function addSymbolFromResult(sym) {
+        const normalized = normalizeSymbol(sym);
+        if (!normalized) return;
+        if (!symbols.includes(normalized)) {
+            symbols.push(normalized);
+            saveStoredSymbols(symbols);
+            refresh();
+        }
+        if (addInput) addInput.value = '';
+        hideDropdown();
     }
 
     buildManagerList(symbols);
@@ -251,6 +288,7 @@ function initMarketTicker() {
         manager.hidden = !manager.hidden;
         if (!manager.hidden && addInput) {
             addInput.value = '';
+            hideDropdown();
             setTimeout(() => addInput.focus(), 30);
         }
     });
@@ -258,6 +296,7 @@ function initMarketTicker() {
     document.addEventListener('click', e => {
         if (!manager.hidden && !manager.contains(e.target) && e.target !== btn) {
             manager.hidden = true;
+            hideDropdown();
         }
     });
 
@@ -271,6 +310,7 @@ function initMarketTicker() {
             refresh();
         }
         addInput.value = '';
+        hideDropdown();
     }
 
     if (addBtn) addBtn.addEventListener('click', addSymbol);
@@ -278,7 +318,27 @@ function initMarketTicker() {
     if (addInput) {
         addInput.addEventListener('keydown', e => {
             if (e.key === 'Enter') { addSymbol(); e.preventDefault(); }
-            else if (e.key === 'Escape') { manager.hidden = true; }
+            else if (e.key === 'Escape') {
+                if (dropdown && !dropdown.hidden) { hideDropdown(); }
+                else { manager.hidden = true; }
+            }
+        });
+
+        addInput.addEventListener('input', () => {
+            clearTimeout(searchTimer);
+            const q = addInput.value.trim();
+            if (!q) { hideDropdown(); return; }
+            searchTimer = setTimeout(() => {
+                fetch(`/api/search?q=${encodeURIComponent(q)}`)
+                    .then(res => res.ok ? res.json() : null)
+                    .then(data => showDropdown(data && data.results))
+                    .catch(() => hideDropdown());
+            }, 300);
+        });
+
+        addInput.addEventListener('blur', () => {
+            // Delay so mousedown on a result fires before the dropdown hides
+            setTimeout(hideDropdown, 150);
         });
     }
 
