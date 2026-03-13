@@ -24,6 +24,31 @@
         </div>
     </div>
 
+    <!-- Market Ticker -->
+    <div class="market-ticker-bar" id="market-ticker-bar">
+        <div class="market-ticker-label">
+            <svg class="market-icon" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                <polyline points="1,9 4,4 7,6 11,1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            MARKETS
+        </div>
+        <div class="market-ticker-track">
+            <div class="market-ticker-scroll" id="market-ticker-scroll">
+                <!-- populated by script.js -->
+            </div>
+        </div>
+        <button class="market-settings-btn" id="market-settings-btn" aria-label="Manage ticker symbols">⚙ Manage Ticker</button>
+        <div class="market-manager" id="market-manager" hidden>
+            <p class="market-manager-title">Manage Ticker</p>
+            <div class="market-manager-list" id="market-manager-list"></div>
+            <div class="market-manager-add-row">
+                <input type="text" id="market-manager-input" class="market-manager-input"
+                    placeholder="Symbol (e.g. AAPL)" autocomplete="off" spellcheck="false" maxlength="12">
+                <button id="market-manager-add-btn" class="market-manager-add-btn">Add</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="header-top-row">
@@ -54,31 +79,6 @@
         <p class="tagline">Intelligence · Curated Daily</p>
         <div class="header-red-bar"></div>
     </header>
-
-    <!-- Market Ticker -->
-    <div class="market-ticker-bar" id="market-ticker-bar">
-        <div class="market-ticker-label">
-            <svg class="market-icon" viewBox="0 0 12 10" fill="none" aria-hidden="true">
-                <polyline points="1,9 4,4 7,6 11,1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            MARKETS
-        </div>
-        <div class="market-ticker-track">
-            <div class="market-ticker-scroll" id="market-ticker-scroll">
-                <!-- populated by script.js -->
-            </div>
-        </div>
-        <button class="market-settings-btn" id="market-settings-btn" aria-label="Manage ticker symbols">⚙ Manage Ticker</button>
-        <div class="market-manager" id="market-manager" hidden>
-            <p class="market-manager-title">Manage Ticker</p>
-            <div class="market-manager-list" id="market-manager-list"></div>
-            <div class="market-manager-add-row">
-                <input type="text" id="market-manager-input" class="market-manager-input"
-                    placeholder="Symbol (e.g. AAPL)" autocomplete="off" spellcheck="false" maxlength="12">
-                <button id="market-manager-add-btn" class="market-manager-add-btn">Add</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Filter Navigation -->
     <nav class="filter-nav" id="filter-nav">

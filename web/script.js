@@ -285,6 +285,7 @@ function initMarketTicker() {
     manager.addEventListener('click', e => {
         const removeBtn = e.target.closest('.market-manager-remove');
         if (!removeBtn) return;
+        e.stopPropagation();
         const sym = removeBtn.dataset.symbol;
         symbols = symbols.filter(s => s !== sym);
         saveStoredSymbols(symbols);
