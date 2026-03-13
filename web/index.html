@@ -55,6 +55,31 @@
         <div class="header-red-bar"></div>
     </header>
 
+    <!-- Market Ticker -->
+    <div class="market-ticker-bar" id="market-ticker-bar">
+        <div class="market-ticker-label">
+            <svg class="market-icon" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                <polyline points="1,9 4,4 7,6 11,1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            MARKETS
+        </div>
+        <div class="market-ticker-track">
+            <div class="market-ticker-scroll" id="market-ticker-scroll">
+                <!-- populated by script.js -->
+            </div>
+        </div>
+        <button class="market-settings-btn" id="market-settings-btn" aria-label="Customize market symbols" title="Customize symbols">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.93 2.93l1.41 1.41M11.66 11.66l1.41 1.41M2.93 13.07l1.41-1.41M11.66 4.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div class="market-picker" id="market-picker" hidden>
+            <p class="market-picker-title">Symbols</p>
+            <div class="market-picker-list" id="market-picker-list"></div>
+        </div>
+    </div>
+
     <!-- Filter Navigation -->
     <nav class="filter-nav" id="filter-nav">
         <div class="filter-inner">
