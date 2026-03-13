@@ -198,8 +198,17 @@ function formatMarketItem(sym) {
 function buildMarketTicker(quotes) {
     const scroll = document.getElementById('market-ticker-scroll');
     if (!scroll) return;
+
+    if (quotes === null) {
+        // API unavailable — show a visible notice instead of blank
+        scroll.style.animation = 'none';
+        scroll.innerHTML = '<span class="market-unavailable">Market data unavailable — set FINNHUB_API_KEY to enable live quotes</span>';
+        return;
+    }
+
     if (quotes.length === 0) { scroll.innerHTML = ''; return; }
 
+    scroll.style.animation = '';
     const html = quotes.map(formatMarketItem).join('');
     scroll.innerHTML = html + html; // duplicate for seamless loop
 
@@ -232,23 +241,40 @@ function buildMarketPicker(enabledSet) {
 
 function fetchMarketQuotes(enabledSet) {
     const symbols = [...enabledSet].join(',');
+    if (!symbols) return Promise.resolve(null);
     return fetch(`/api/quotes?symbols=${encodeURIComponent(symbols)}`)
-        .then(res => res.ok ? res.json() : null)
-        .then(data => (data && Array.isArray(data.symbols)) ? data.symbols : [])
-        .catch(() => []);
+        .then(res => res.ok ? res.json() : Promise.reject(res.status))
+        .then(data => (data && Array.isArray(data.symbols)) ? data.symbols : null)
+        .catch(() => null); // null signals unavailable
+}
+
+function filterPickerRows(query) {
+    const q = query.trim().toUpperCase();
+    document.querySelectorAll('#market-picker-list .market-picker-row').forEach(row => {
+        const sym  = (row.querySelector('input[data-symbol]')?.dataset.symbol || '').toUpperCase();
+        const name = (row.querySelector('.market-picker-sym + span')?.textContent || '').toUpperCase();
+        row.style.display = (!q || sym.includes(q) || name.includes(q)) ? '' : 'none';
+    });
 }
 
 function initMarketTicker() {
     let enabledSet = getEnabledSymbols();
     buildMarketPicker(enabledSet);
 
-    const btn    = document.getElementById('market-settings-btn');
-    const picker = document.getElementById('market-picker');
+    const btn         = document.getElementById('market-settings-btn');
+    const picker      = document.getElementById('market-picker');
+    const filterInput = document.getElementById('market-picker-input');
     if (!btn || !picker) return;
 
     btn.addEventListener('click', e => {
         e.stopPropagation();
         picker.hidden = !picker.hidden;
+        if (!picker.hidden && filterInput) {
+            filterInput.value = '';
+            filterPickerRows('');
+            // slight delay so browser has rendered the panel
+            setTimeout(() => filterInput.focus(), 30);
+        }
     });
 
     document.addEventListener('click', e => {
@@ -256,6 +282,24 @@ function initMarketTicker() {
             picker.hidden = true;
         }
     });
+
+    if (filterInput) {
+        filterInput.addEventListener('input', () => filterPickerRows(filterInput.value));
+
+        filterInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                // Toggle the first visible symbol checkbox
+                const firstVisible = picker.querySelector('.market-picker-row:not([style*="display: none"]) input[type="checkbox"]');
+                if (firstVisible) {
+                    firstVisible.checked = !firstVisible.checked;
+                    firstVisible.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+                e.preventDefault();
+            } else if (e.key === 'Escape') {
+                picker.hidden = true;
+            }
+        });
+    }
 
     picker.addEventListener('change', e => {
         const cb = e.target.closest('input[type="checkbox"]');
