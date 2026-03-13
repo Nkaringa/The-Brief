@@ -54,6 +54,54 @@ function formatDate(dateStr) {
     }
 }
 
+function parseDate(dateStr) {
+    const normalized = typeof dateStr === 'string' ? dateStr.replace(' ', 'T') : dateStr;
+    const date = new Date(normalized);
+    return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function formatFooterTime(dateStr) {
+    const date = parseDate(dateStr);
+    if (!date) return dateStr;
+
+    const slot = new Date(date);
+    slot.setUTCMinutes(0, 0, 0);
+    slot.setUTCHours(Math.floor(slot.getUTCHours() / 6) * 6);
+
+    return slot.toLocaleString('en-US', {
+        timeZone: 'UTC',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZoneName: 'short'
+    });
+}
+
+function formatFooterUpdated(dateStr) {
+    const date = parseDate(dateStr);
+    if (!date) return dateStr;
+
+    return date.toLocaleString('en-US', {
+        timeZone: 'UTC',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZoneName: 'short'
+    });
+}
+
+function updateFooterTimes(dateStr) {
+    const footerTime = document.getElementById('footer-time');
+    const footerTimeUpdated = document.getElementById('footer-time-updated');
+
+    if (footerTime) footerTime.textContent = formatFooterTime(dateStr);
+    if (footerTimeUpdated) footerTimeUpdated.textContent = formatFooterUpdated(dateStr);
+}
+
 // ─── TICKER ───────────────────────────────────────────────────
 function buildTicker(newsData) {
     const scroll = document.getElementById('ticker-scroll');
@@ -236,6 +284,7 @@ fetch('data/news.json')
             const fmt = formatDate(data.date);
             const headerDate = document.getElementById('header-date');
             if (headerDate) headerDate.textContent = fmt;
+            updateFooterTimes(data.date);
         }
 
         // Ticker
