@@ -147,7 +147,29 @@ function buildTicker(newsData) {
 
 const MARKET_STORAGE_KEY = 'market-symbols';
 
-function getEnabledSymbols(allSymbols) {
+// All symbols available in the picker (must match api/quotes.js allowlist)
+const AVAILABLE_SYMBOLS = [
+    { symbol: 'SPY',   name: 'S&P 500'      },
+    { symbol: 'QQQ',   name: 'Nasdaq 100'   },
+    { symbol: 'DIA',   name: 'Dow Jones'    },
+    { symbol: 'IWM',   name: 'Russell 2000' },
+    { symbol: 'GLD',   name: 'Gold'         },
+    { symbol: 'AAPL',  name: 'Apple'        },
+    { symbol: 'MSFT',  name: 'Microsoft'    },
+    { symbol: 'NVDA',  name: 'NVIDIA'       },
+    { symbol: 'TSLA',  name: 'Tesla'        },
+    { symbol: 'AMZN',  name: 'Amazon'       },
+    { symbol: 'META',  name: 'Meta'         },
+    { symbol: 'GOOGL', name: 'Alphabet'     },
+    { symbol: 'JPM',   name: 'JPMorgan'     },
+    { symbol: 'V',     name: 'Visa'         },
+    { symbol: 'AMD',   name: 'AMD'          },
+    { symbol: 'COIN',  name: 'Coinbase'     },
+];
+
+const DEFAULT_SYMBOLS = new Set(['SPY', 'QQQ', 'DIA', 'IWM', 'AAPL', 'MSFT', 'NVDA', 'TSLA']);
+
+function getEnabledSymbols() {
     try {
         const saved = localStorage.getItem(MARKET_STORAGE_KEY);
         if (saved) {
@@ -155,7 +177,7 @@ function getEnabledSymbols(allSymbols) {
             if (Array.isArray(arr) && arr.length > 0) return new Set(arr);
         }
     } catch {}
-    return new Set(allSymbols.map(s => s.symbol));
+    return new Set(DEFAULT_SYMBOLS);
 }
 
 function saveEnabledSymbols(enabledSet) {
@@ -173,14 +195,12 @@ function formatMarketItem(sym) {
         `</span><span class="market-sep" aria-hidden="true">◆</span>`;
 }
 
-function buildMarketTicker(allSymbols, enabledSet) {
+function buildMarketTicker(quotes) {
     const scroll = document.getElementById('market-ticker-scroll');
     if (!scroll) return;
+    if (quotes.length === 0) { scroll.innerHTML = ''; return; }
 
-    const visible = allSymbols.filter(s => enabledSet.has(s.symbol));
-    if (visible.length === 0) { scroll.innerHTML = ''; return; }
-
-    const html = visible.map(formatMarketItem).join('');
+    const html = quotes.map(formatMarketItem).join('');
     scroll.innerHTML = html + html; // duplicate for seamless loop
 
     requestAnimationFrame(() => {
@@ -190,12 +210,12 @@ function buildMarketTicker(allSymbols, enabledSet) {
     });
 }
 
-function buildMarketPicker(allSymbols, enabledSet) {
+function buildMarketPicker(enabledSet) {
     const list = document.getElementById('market-picker-list');
     if (!list) return;
     list.innerHTML = '';
 
-    allSymbols.forEach(sym => {
+    AVAILABLE_SYMBOLS.forEach(sym => {
         const row = document.createElement('div');
         row.className = 'market-picker-row';
         const id = `mkt-${sym.symbol}`;
@@ -210,10 +230,17 @@ function buildMarketPicker(allSymbols, enabledSet) {
     });
 }
 
-function initMarketTicker(allSymbols) {
-    let enabledSet = getEnabledSymbols(allSymbols);
-    buildMarketTicker(allSymbols, enabledSet);
-    buildMarketPicker(allSymbols, enabledSet);
+function fetchMarketQuotes(enabledSet) {
+    const symbols = [...enabledSet].join(',');
+    return fetch(`/api/quotes?symbols=${encodeURIComponent(symbols)}`)
+        .then(res => res.ok ? res.json() : null)
+        .then(data => (data && Array.isArray(data.symbols)) ? data.symbols : [])
+        .catch(() => []);
+}
+
+function initMarketTicker() {
+    let enabledSet = getEnabledSymbols();
+    buildMarketPicker(enabledSet);
 
     const btn    = document.getElementById('market-settings-btn');
     const picker = document.getElementById('market-picker');
@@ -237,18 +264,13 @@ function initMarketTicker(allSymbols) {
         if (cb.checked) enabledSet.add(sym);
         else enabledSet.delete(sym);
         saveEnabledSymbols(enabledSet);
-        buildMarketTicker(allSymbols, enabledSet);
+        fetchMarketQuotes(enabledSet).then(buildMarketTicker);
     });
+
+    fetchMarketQuotes(enabledSet).then(buildMarketTicker);
 }
 
-fetch('data/markets.json')
-    .then(res => res.ok ? res.json() : null)
-    .then(data => {
-        if (data && Array.isArray(data.symbols) && data.symbols.length > 0) {
-            initMarketTicker(data.symbols);
-        }
-    })
-    .catch(() => {}); // market ticker is non-critical
+initMarketTicker();
 
 
 // ─── FILTER + SEARCH ──────────────────────────────────────────

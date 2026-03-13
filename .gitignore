@@ -13,6 +13,10 @@ public/
 .idea/
 .DS_Store
 
+# Secrets
+.env
+.env.local
+
 # Claude agent artifacts
 .claude/
 .vercel
