@@ -217,7 +217,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0 8px;
+    padding: 9px 0 7px;
     border-bottom: 1px solid var(--border-light);
     font-family: var(--font-sans);
     font-size: 11px;
@@ -236,7 +236,7 @@ header {
     display: flex;
     align-items: center;
     gap: 24px;
-    padding: 28px 0 20px;
+    padding: 25px 0 18px;
 }
 
 .rule-line {
@@ -262,7 +262,7 @@ header h1 {
     text-transform: uppercase;
     color: var(--ink-4);
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
 }
 
 .header-red-bar {
