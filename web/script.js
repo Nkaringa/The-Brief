@@ -60,6 +60,8 @@ function parseDate(dateStr) {
     return Number.isNaN(date.getTime()) ? null : date;
 }
 
+const DISPLAY_TIME_ZONE = 'America/Indiana/Indianapolis';
+
 function formatFooterTime(dateStr) {
     const date = parseDate(dateStr);
     if (!date) return dateStr;
@@ -69,7 +71,7 @@ function formatFooterTime(dateStr) {
     slot.setUTCHours(Math.floor(slot.getUTCHours() / 6) * 6);
 
     return slot.toLocaleString('en-US', {
-        timeZone: 'UTC',
+        timeZone: DISPLAY_TIME_ZONE,
         month: 'short',
         day: 'numeric',
         hour: 'numeric',
@@ -84,7 +86,7 @@ function formatFooterUpdated(dateStr) {
     if (!date) return dateStr;
 
     return date.toLocaleString('en-US', {
-        timeZone: 'UTC',
+        timeZone: DISPLAY_TIME_ZONE,
         month: 'short',
         day: 'numeric',
         hour: 'numeric',
