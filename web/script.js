@@ -146,42 +146,27 @@ function buildTicker(newsData) {
 // ─── MARKET TICKER ────────────────────────────────────────────
 
 const MARKET_STORAGE_KEY = 'market-symbols';
+const DEFAULT_SYMBOLS = ['SPY', 'QQQ', 'DIA', 'IWM', 'AAPL', 'MSFT', 'NVDA', 'TSLA'];
 
-// All symbols available in the picker (must match api/quotes.js allowlist)
-const AVAILABLE_SYMBOLS = [
-    { symbol: 'SPY',   name: 'S&P 500'      },
-    { symbol: 'QQQ',   name: 'Nasdaq 100'   },
-    { symbol: 'DIA',   name: 'Dow Jones'    },
-    { symbol: 'IWM',   name: 'Russell 2000' },
-    { symbol: 'GLD',   name: 'Gold'         },
-    { symbol: 'AAPL',  name: 'Apple'        },
-    { symbol: 'MSFT',  name: 'Microsoft'    },
-    { symbol: 'NVDA',  name: 'NVIDIA'       },
-    { symbol: 'TSLA',  name: 'Tesla'        },
-    { symbol: 'AMZN',  name: 'Amazon'       },
-    { symbol: 'META',  name: 'Meta'         },
-    { symbol: 'GOOGL', name: 'Alphabet'     },
-    { symbol: 'JPM',   name: 'JPMorgan'     },
-    { symbol: 'V',     name: 'Visa'         },
-    { symbol: 'AMD',   name: 'AMD'          },
-    { symbol: 'COIN',  name: 'Coinbase'     },
-];
-
-const DEFAULT_SYMBOLS = new Set(['SPY', 'QQQ', 'DIA', 'IWM', 'AAPL', 'MSFT', 'NVDA', 'TSLA']);
-
-function getEnabledSymbols() {
+function getStoredSymbols() {
     try {
         const saved = localStorage.getItem(MARKET_STORAGE_KEY);
         if (saved) {
             const arr = JSON.parse(saved);
-            if (Array.isArray(arr) && arr.length > 0) return new Set(arr);
+            if (Array.isArray(arr) && arr.length > 0) return arr;
         }
     } catch {}
-    return new Set(DEFAULT_SYMBOLS);
+    return [...DEFAULT_SYMBOLS];
 }
 
-function saveEnabledSymbols(enabledSet) {
-    try { localStorage.setItem(MARKET_STORAGE_KEY, JSON.stringify([...enabledSet])); } catch {}
+function saveStoredSymbols(arr) {
+    try { localStorage.setItem(MARKET_STORAGE_KEY, JSON.stringify(arr)); } catch {}
+}
+
+// Normalize a user-typed symbol: uppercase, strip non-ticker chars, validate length
+function normalizeSymbol(input) {
+    const s = input.trim().toUpperCase().replace(/[^A-Z0-9.-]/g, '');
+    return (s.length >= 1 && s.length <= 12) ? s : null;
 }
 
 function formatMarketItem(sym) {
@@ -199,14 +184,11 @@ function buildMarketTicker(quotes) {
     const scroll = document.getElementById('market-ticker-scroll');
     if (!scroll) return;
 
-    if (quotes === null) {
-        // API unavailable — show a visible notice instead of blank
+    if (!quotes || quotes.length === 0) {
         scroll.style.animation = 'none';
-        scroll.innerHTML = '<span class="market-unavailable">Market data unavailable — set FINNHUB_API_KEY to enable live quotes</span>';
+        scroll.innerHTML = '<span class="market-unavailable">Market data unavailable</span>';
         return;
     }
-
-    if (quotes.length === 0) { scroll.innerHTML = ''; return; }
 
     scroll.style.animation = '';
     const html = quotes.map(formatMarketItem).join('');
@@ -219,99 +201,97 @@ function buildMarketTicker(quotes) {
     });
 }
 
-function buildMarketPicker(enabledSet) {
-    const list = document.getElementById('market-picker-list');
+function buildManagerList(symbols) {
+    const list = document.getElementById('market-manager-list');
     if (!list) return;
     list.innerHTML = '';
 
-    AVAILABLE_SYMBOLS.forEach(sym => {
+    if (symbols.length === 0) {
+        list.innerHTML = '<div class="market-manager-empty">No symbols selected.</div>';
+        return;
+    }
+
+    symbols.forEach(sym => {
         const row = document.createElement('div');
-        row.className = 'market-picker-row';
-        const id = `mkt-${sym.symbol}`;
-        const checked = enabledSet.has(sym.symbol) ? 'checked' : '';
+        row.className = 'market-manager-row';
         row.innerHTML =
-            `<input type="checkbox" id="${escapeHtml(id)}" ${checked} data-symbol="${escapeHtml(sym.symbol)}">` +
-            `<label for="${escapeHtml(id)}">` +
-            `<span class="market-picker-sym">${escapeHtml(sym.symbol)}</span>` +
-            `<span>${escapeHtml(sym.name)}</span>` +
-            `</label>`;
+            `<span class="market-manager-sym">${escapeHtml(sym)}</span>` +
+            `<button class="market-manager-remove" data-symbol="${escapeHtml(sym)}" aria-label="Remove ${escapeHtml(sym)}">✕</button>`;
         list.appendChild(row);
     });
 }
 
-function fetchMarketQuotes(enabledSet) {
-    const symbols = [...enabledSet].join(',');
-    if (!symbols) return Promise.resolve(null);
-    return fetch(`/api/quotes?symbols=${encodeURIComponent(symbols)}`)
+function fetchMarketQuotes(symbols) {
+    if (!symbols || symbols.length === 0) return Promise.resolve(null);
+    const param = symbols.join(',');
+    return fetch(`/api/quotes?symbols=${encodeURIComponent(param)}`)
         .then(res => res.ok ? res.json() : Promise.reject(res.status))
         .then(data => (data && Array.isArray(data.symbols)) ? data.symbols : null)
-        .catch(() => null); // null signals unavailable
-}
-
-function filterPickerRows(query) {
-    const q = query.trim().toUpperCase();
-    document.querySelectorAll('#market-picker-list .market-picker-row').forEach(row => {
-        const sym  = (row.querySelector('input[data-symbol]')?.dataset.symbol || '').toUpperCase();
-        const name = (row.querySelector('.market-picker-sym + span')?.textContent || '').toUpperCase();
-        row.style.display = (!q || sym.includes(q) || name.includes(q)) ? '' : 'none';
-    });
+        .catch(() => null);
 }
 
 function initMarketTicker() {
-    let enabledSet = getEnabledSymbols();
-    buildMarketPicker(enabledSet);
+    let symbols = getStoredSymbols();
 
-    const btn         = document.getElementById('market-settings-btn');
-    const picker      = document.getElementById('market-picker');
-    const filterInput = document.getElementById('market-picker-input');
-    if (!btn || !picker) return;
+    const btn      = document.getElementById('market-settings-btn');
+    const manager  = document.getElementById('market-manager');
+    const addInput = document.getElementById('market-manager-input');
+    const addBtn   = document.getElementById('market-manager-add-btn');
+    if (!btn || !manager) return;
+
+    function refresh() {
+        buildManagerList(symbols);
+        fetchMarketQuotes(symbols).then(buildMarketTicker);
+    }
+
+    buildManagerList(symbols);
 
     btn.addEventListener('click', e => {
         e.stopPropagation();
-        picker.hidden = !picker.hidden;
-        if (!picker.hidden && filterInput) {
-            filterInput.value = '';
-            filterPickerRows('');
-            // slight delay so browser has rendered the panel
-            setTimeout(() => filterInput.focus(), 30);
+        manager.hidden = !manager.hidden;
+        if (!manager.hidden && addInput) {
+            addInput.value = '';
+            setTimeout(() => addInput.focus(), 30);
         }
     });
 
     document.addEventListener('click', e => {
-        if (!picker.hidden && !picker.contains(e.target) && e.target !== btn) {
-            picker.hidden = true;
+        if (!manager.hidden && !manager.contains(e.target) && e.target !== btn) {
+            manager.hidden = true;
         }
     });
 
-    if (filterInput) {
-        filterInput.addEventListener('input', () => filterPickerRows(filterInput.value));
+    function addSymbol() {
+        if (!addInput) return;
+        const sym = normalizeSymbol(addInput.value);
+        if (!sym) return;
+        if (!symbols.includes(sym)) {
+            symbols.push(sym);
+            saveStoredSymbols(symbols);
+            refresh();
+        }
+        addInput.value = '';
+    }
 
-        filterInput.addEventListener('keydown', e => {
-            if (e.key === 'Enter') {
-                // Toggle the first visible symbol checkbox
-                const firstVisible = picker.querySelector('.market-picker-row:not([style*="display: none"]) input[type="checkbox"]');
-                if (firstVisible) {
-                    firstVisible.checked = !firstVisible.checked;
-                    firstVisible.dispatchEvent(new Event('change', { bubbles: true }));
-                }
-                e.preventDefault();
-            } else if (e.key === 'Escape') {
-                picker.hidden = true;
-            }
+    if (addBtn) addBtn.addEventListener('click', addSymbol);
+
+    if (addInput) {
+        addInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') { addSymbol(); e.preventDefault(); }
+            else if (e.key === 'Escape') { manager.hidden = true; }
         });
     }
 
-    picker.addEventListener('change', e => {
-        const cb = e.target.closest('input[type="checkbox"]');
-        if (!cb) return;
-        const sym = cb.dataset.symbol;
-        if (cb.checked) enabledSet.add(sym);
-        else enabledSet.delete(sym);
-        saveEnabledSymbols(enabledSet);
-        fetchMarketQuotes(enabledSet).then(buildMarketTicker);
+    manager.addEventListener('click', e => {
+        const removeBtn = e.target.closest('.market-manager-remove');
+        if (!removeBtn) return;
+        const sym = removeBtn.dataset.symbol;
+        symbols = symbols.filter(s => s !== sym);
+        saveStoredSymbols(symbols);
+        refresh();
     });
 
-    fetchMarketQuotes(enabledSet).then(buildMarketTicker);
+    fetchMarketQuotes(symbols).then(buildMarketTicker);
 }
 
 initMarketTicker();

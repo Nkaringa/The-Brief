@@ -1,7 +1,8 @@
 const https = require('https');
 
-// All symbols the API will quote — browser cannot request others
-const SYMBOLS = {
+// Well-known symbols — used for display names and demo fallback prices.
+// Arbitrary symbols are also accepted; they get generated demo prices.
+const KNOWN_NAMES = {
     SPY:   'S&P 500',
     QQQ:   'Nasdaq 100',
     DIA:   'Dow Jones',
@@ -40,6 +41,21 @@ const DEMO_PRICES = {
     COIN:  { price: 189.23, change: -8.90, change_pct: -4.49 },
 };
 
+// Generate a deterministic fake price for any symbol not in DEMO_PRICES
+function demoPriceFor(sym) {
+    if (DEMO_PRICES[sym]) return DEMO_PRICES[sym];
+    const hash = [...sym].reduce((h, c) => (h * 31 + c.charCodeAt(0)) & 0x7fffffff, 0);
+    const price   = +(10 + (hash % 8990) / 10).toFixed(2);            // $10 – $909
+    const changePct = +((hash % 1200) / 100 - 6).toFixed(2);          // -6% to +5.99%
+    const change    = +(price * changePct / 100).toFixed(2);
+    return { price, change, change_pct: changePct };
+}
+
+// Accept any plausible ticker: 1-12 uppercase letters/digits, optional single dot or dash
+function isValidSymbol(s) {
+    return /^[A-Z][A-Z0-9.-]{0,11}$/.test(s);
+}
+
 function fetchQuote(symbol, token) {
     return new Promise((resolve) => {
         const url = `https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(symbol)}&token=${encodeURIComponent(token)}`;
@@ -59,19 +75,18 @@ module.exports = async function handler(req, res) {
 
     const param = (req.query.symbols || '').toUpperCase();
     const requested = param.split(',').map(s => s.trim()).filter(Boolean);
-    const allowed = Object.keys(SYMBOLS);
-    const symbols = [...new Set(requested.filter(s => allowed.includes(s)))].slice(0, 20);
+    const symbols = [...new Set(requested.filter(isValidSymbol))].slice(0, 20);
 
     if (symbols.length === 0) {
         return res.status(400).json({ error: 'No valid symbols requested' });
     }
 
-    // No API key: return static demo prices so the ticker renders in local/dev
+    // No API key: return demo prices so the ticker renders in local/dev
     if (!token) {
         const demo = symbols.map(sym => ({
             symbol: sym,
-            name: SYMBOLS[sym],
-            ...DEMO_PRICES[sym],
+            name: KNOWN_NAMES[sym] || sym,
+            ...demoPriceFor(sym),
             demo: true,
         }));
         res.setHeader('Cache-Control', 'no-store');
@@ -84,7 +99,7 @@ module.exports = async function handler(req, res) {
             if (!data || !data.c || data.c === 0) return null;
             return {
                 symbol: sym,
-                name: SYMBOLS[sym],
+                name: KNOWN_NAMES[sym] || sym,
                 price: data.c,
                 change: data.d,
                 change_pct: data.dp,

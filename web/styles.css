@@ -270,71 +270,19 @@ body {
     border-left: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0 14px;
     cursor: pointer;
-    color: rgba(255, 255, 255, 0.32);
+    color: rgba(255, 255, 255, 0.50);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
     display: flex;
     align-items: center;
     flex-shrink: 0;
     transition: color 0.14s;
-    line-height: 0;
 }
 
-.market-settings-btn:hover { color: rgba(255, 255, 255, 0.72); }
-
-.market-settings-btn svg { width: 13px; height: 13px; }
-
-/* ─── MARKET SYMBOL PICKER ─── */
-
-.market-picker {
-    position: absolute;
-    top: calc(100% + 4px);
-    right: 0;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
-    padding: 10px 0 6px;
-    z-index: 300;
-    min-width: 188px;
-}
-
-.market-picker-title {
-    font-family: var(--font-sans);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-4);
-    padding: 0 14px 8px;
-    border-bottom: 1px solid var(--border-light);
-    margin-bottom: 0;
-}
-
-.market-picker-search-wrap {
-    padding: 8px 10px;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.market-picker-input {
-    width: 100%;
-    box-sizing: border-box;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    color: var(--ink);
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 5px 8px;
-    outline: none;
-    transition: border-color 0.12s;
-}
-
-.market-picker-input:focus {
-    border-color: var(--red);
-}
-
-.market-picker-input::placeholder {
-    color: var(--ink-4);
-}
+.market-settings-btn:hover { color: rgba(255, 255, 255, 0.85); }
 
 .market-unavailable {
     color: rgba(255, 255, 255, 0.32);
@@ -346,48 +294,124 @@ body {
     user-select: none;
 }
 
-.market-picker-list {
+/* ─── MARKET MANAGER PANEL ─── */
+
+.market-manager {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+    padding: 10px 0 10px;
+    z-index: 300;
+    min-width: 210px;
+}
+
+.market-manager-title {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    padding: 0 14px 8px;
+    border-bottom: 1px solid var(--border-light);
+    margin: 0;
+}
+
+.market-manager-list {
     display: flex;
     flex-direction: column;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border-light);
 }
 
-.market-picker-row {
+.market-manager-empty {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--ink-4);
+    padding: 8px 14px;
+    font-style: italic;
+}
+
+.market-manager-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px 5px 14px;
     gap: 8px;
-    padding: 5px 14px;
-    cursor: pointer;
-    transition: background 0.1s;
 }
 
-.market-picker-row:hover { background: var(--red-tint); }
+.market-manager-sym {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    flex: 1;
+}
 
-.market-picker-row input[type="checkbox"] {
-    width: 13px;
-    height: 13px;
-    accent-color: var(--red);
+.market-manager-remove {
+    background: none;
+    border: none;
     cursor: pointer;
+    color: var(--ink-4);
+    font-size: 11px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    line-height: 1;
+    transition: color 0.1s, background 0.1s;
     flex-shrink: 0;
 }
 
-.market-picker-row label {
+.market-manager-remove:hover {
+    color: var(--red);
+    background: var(--red-tint);
+}
+
+.market-manager-add-row {
+    display: flex;
+    gap: 6px;
+    padding: 8px 10px 0;
+}
+
+.market-manager-input {
+    flex: 1;
+    min-width: 0;
     font-family: var(--font-sans);
     font-size: 12px;
     color: var(--ink);
-    cursor: pointer;
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 5px 8px;
+    outline: none;
+    transition: border-color 0.12s;
+    text-transform: uppercase;
 }
 
-.market-picker-sym {
-    font-weight: 700;
-    font-size: 10.5px;
-    color: var(--red);
-    letter-spacing: 0.04em;
+.market-manager-input:focus { border-color: var(--red); }
+.market-manager-input::placeholder { color: var(--ink-4); text-transform: none; }
+
+.market-manager-add-btn {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 5px 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.12s;
 }
+
+.market-manager-add-btn:hover { background: var(--red-dark); }
 
 
 /* ─── THEME TOGGLE ─── */
