@@ -8,9 +8,13 @@ const FEEDS = {
     cyber:  'https://news.google.com/rss/search?q=cybersecurity&hl=en-US&gl=US&ceid=US:en',
 };
 
-function fetchFeed(url) {
+function fetchFeed(url, redirects = 0) {
     return new Promise((resolve) => {
-        https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+        https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1)' } }, (res) => {
+            if ((res.statusCode === 301 || res.statusCode === 302) && res.headers.location && redirects < 3) {
+                res.resume();
+                return resolve(fetchFeed(res.headers.location, redirects + 1));
+            }
             let body = '';
             res.on('data', chunk => body += chunk);
             res.on('end', () => resolve(body));
@@ -18,8 +22,14 @@ function fetchFeed(url) {
     });
 }
 
-const TITLE_RE = /<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/g;
-const LINK_RE  = /<link>(https?:\/\/[^<]+)<\/link>/g;
+// matches both <title><![CDATA[...]]></title> and plain <title>...</title>
+const TITLE_RE = /<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/g;
+// matches <link>https://...</link> or <guid ...>https://...</guid>
+const LINK_RE  = /<(?:link|guid[^>]*)>(https?:\/\/[^<]+)<\/(?:link|guid)>/g;
+
+function decodeEntities(str) {
+    return str.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+}
 
 function parseItems(xml) {
     const titles = [];
@@ -27,7 +37,7 @@ function parseItems(xml) {
     let m;
 
     TITLE_RE.lastIndex = 0;
-    while ((m = TITLE_RE.exec(xml)) !== null) titles.push(m[1]);
+    while ((m = TITLE_RE.exec(xml)) !== null) titles.push(decodeEntities(m[1].trim()));
 
     LINK_RE.lastIndex = 0;
     while ((m = LINK_RE.exec(xml)) !== null) links.push(m[1]);
