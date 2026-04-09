@@ -1,10 +1,18 @@
 {
-  "date": "2026-04-09 07:27:51.620556",
+  "date": "2026-04-09 13:48:20.237460",
   "news": {
     "tech": [
       {
         "title": "The Age-Old Urge to Destroy Technology - The New Yorker",
         "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPTHVuRVlRY05XTy1TR3dyTUZWZ0ZrRTRtNzZNVVJ0YlF3UW1QTFdmZUR1emlYSnk3eWxCY1RWUXNPYlhoalJpYmtoeFRqYWZPQnczSFgtbFZZSVJEdVU0dExzZ0xTRTlycDJtQjlaRS1YclJ3S0g1a25uUEJJMjVTaVRjQkxFLVdvZU1uT3JoeTRJdw?oc=5"
+      },
+      {
+        "title": "School of Science and Technology hosting job fair April 18 - Yahoo",
+        "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNc3VJN2t0OXdGVU5nWmZWWHRYNXBtRTdENllESF91YllEWVR6a3otZTI0TkJHc0FVajRscHZhYWZlZ3B4c1EwdGpqWWhRSkd1RS00NXc5N1owRmlSZGRWc204NkZzc1dVSXV5UzdrOFF1V0J2dWYtMXlKZDMxc29UOGZpa1BUM0hYQU5HQUJrU28xdw?oc=5"
+      },
+      {
+        "title": "SiFive raises $400 million from Atreides, Nvidia for data-center chip technology - Reuters",
+        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSllzQnBkRFBnOW1uYzN1ajgyLUlXZ0Jra2lOMUVQbThXTXByNVBRRTdHVmxialZnRVZtdHJKUnV0cnJvOXFUejhlci15RVl4eDBQOWFqWGVMUGYyX25zdWRsRGpITXBubHoyRGQzbVdsbmhtY0lSY0QwSGJBc0VCZHEyRUIwTTJobDRfUHNjUVh2VG51VV9WTTVzNkZjMmZfc29wTUUwVEc4OVplYzZ6MFQyVnI?oc=5"
       },
       {
         "title": "Anthropic Claims Its New A.I. Model, Mythos, Is a Cybersecurity \u2018Reckoning\u2019 - The New York Times",
@@ -15,116 +23,108 @@
         "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbmVHWnJqRGpoalBDSkR5RUhHMHRuM3JoYktVWEhpc281MjNIaW50MUJuS0NJdG1uaGlfV2RrMDhYdTVNby1lU2J6WXp3dWtYd2ZHRHk3NFVNTFZNU3lsQUZJUWdZQlFZM1BrdFpGZkdPVFdxWDZtY0dWNmMzOGR0bnVTX05KNWhTUFRUWEpmSnhDWjRpTFNHall4WG9uM1lNdm9WN2dubTlWaHhyLS1aaFQzcFA2QVnSAcsBQVVfeXFMT3VNMDBfdlRzUlRwUnNxMEwzN2dfMHlaUk1tSlFyWlB0VkJGRlhHQ1U1b0xGZDlxam80U1FjOVF0YzRDc3FxbE13Uy13SlY1R2N5aEt0YjJFZ0JueTRBa2Y2Zmg2bml0cmxwcE9SaWZ3bU5FTFBIVEhqVlctd19TRTFNdFptNy1EV2JYMldUTkpRUlNEcWRFckllTnFNbkJyZFpNTFNXc3VhWlpCRmNMdmZtRVVwcXJNZVRIdnRteG5ZaFA4RzNWeXRLalU?oc=5"
       },
       {
+        "title": "NHS data chief pushes for deeper rollout of Palantir technology despite outcry - Financial Times",
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWEpmM3lyV2poVXN4Uk0xT3FmdjdqaGpMMnJrSy1oLXpEYVZSdEtNR0J3b2ZrdTEzZkNZbTNSeDhLUHBtQ2hVc05iMVdDWXVaRlNVcEFRbnZtN1BTMFBYdnpVTkhLRHBBYktNVWY0S1YzTjdJQWJqX3NiZlpRRUpaQVNRZkU?oc=5"
+      },
+      {
+        "title": "House bill calls for $4 million for school safety surveillance technology - 5 EYEWITNESS NEWS",
+        "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOUGx0RENVZU5wZjdabURnUU40dG05VDBRRWx0TWk0cDB2TDA3TXFYUU5KY3pkNWRKLUJzTXFkNU53b1RjVU9uTkR0OUx1ckl6czM5Rm5yV3dxV0xfNmJ0T2VDR3BkZmFEUWIxcjJDN0NBdU1QNFFyTnAxaVl1dk82QUlIeTRoSjdodzRsU1VJc0xOczBNUjhIb0lZVTViZFZ5dXczalYtclQ3a3ZhalE?oc=5"
+      },
+      {
         "title": "Investor Stephanie Link swaps Chevron for technology stocks - CNBC",
         "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWEZKSVNUNFJSY3pQX3ZPWTZ5dTRBMG9VSGVlUkhFbHlycGRUbjlHSFRKZ0txelNsb19PNnplbE0zRmRpS01aOWFZUXB0R2dlZzNPdGlOYUpucnN1ZDdJQ19iWkFBTXV3NTNiQmt3elBVSmQ2dk5VeExSczZtUDJZZzE4ZHhkTUdsRVlvdnNvbEVTVDRHQWRQR3o2WWFxUQ?oc=5"
-      },
-      {
-        "title": "Analysts See 100% Upside in Credo Technology (CRDO) - Yahoo Finance",
-        "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNUjlnUDI5U3NVQ0Y0M0l2Zk5URnpVb2FMMjFSWm12OHJHUzNybHJzNnI2QnFpUnI1c3dsMkUzRGt6cGh0bTVLc3VlWk1nUUhmRzRIVlgxN2xLMjVFOGNrVjhqT0d5TEtlNzc2cUE4U2dOVnhXQnQtVm5hNlRfSUR5eUtUbjN0blBXQlh3cFBjWlpMSTF2Um1LNUZn?oc=5"
-      },
-      {
-        "title": "Micron Technology: Crowded Bet On A Cyclical High (NASDAQ:MU) - Seeking Alpha",
-        "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQRGhSb0xyRndsVFNQSzFfWUNDS3VMaXpNc1JUVHBlOHVGekx6RVZlLVR0MDlmUFdkRzR0TlR3cXFsQ2ROTGJZYmxKMUFKclh4czk1M1RoLV82VzluU0tXUVBBWlFJZUJOeVRYdWhIYjByc3BhdFlpekVsS1I0UDUtUG1aV1RrZURUdEVZWDhfVWtBRjg?oc=5"
       },
       {
         "title": "When Flock Comes to Town: Why Cities Are Axing the Controversial Surveillance Technology - CNET",
         "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPeWc1akdMdEx5YjdoMzYyWWNxbDFCUkRiNW1oZVl2a1VqcWhPUXRQTzBDU0hqZ21ab3VtX29yaExPbE5qOU1Ta3V2QktROWtXdEZiQTh6d29XZUJ3VWUtZjZiTUVER0RhMEhiZTA5ZUZIbEVYc2dvWVgweFpjZ0M4dXBpQy1zMXRZUkxycDB4Q2xWUlpHYUxOU1B2SUptU2xvdG13R3NsVXVQNzhLN1U4ZVFvRHhibWVRYVczVmdEVmY?oc=5"
       },
       {
-        "title": "NHS data chief pushes for deeper rollout of Palantir technology despite outcry - Financial Times",
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWEpmM3lyV2poVXN4Uk0xT3FmdjdqaGpMMnJrSy1oLXpEYVZSdEtNR0J3b2ZrdTEzZkNZbTNSeDhLUHBtQ2hVc05iMVdDWXVaRlNVcEFRbnZtN1BTMFBYdnpVTkhLRHBBYktNVWY0S1YzTjdJQWJqX3NiZlpRRUpaQVNRZkU?oc=5"
-      },
-      {
         "title": "The life-changing magic of wearing smartglasses | Letters - The Guardian",
         "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPaDFrNGI5OG8tc2JhWmQ2U2RHNm4tVlRzLWZjdVRtRTI1Wm96dGIyTHdQQzdrTDlhRFd1eFByVHEtd3JUWUV6Z1cxM3ZKdDgtSEVoLTFETjltZUN6OVlvTER3Nlp1OWVsek9iYzRzTUdSYzNkVnVHVWJOS0xrdkJ0dE91TnpzVVAyejByQ0h6eFdUYWREUkhDNW0xWnp4SU0?oc=5"
-      },
-      {
-        "title": "Turning the AC-DC switch: A legacy technology has reached its limits. - Utility Dive",
-        "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPOGxCYURaVFFzdkNuYlRfalRrMWwxaVJaQ3Fob093MXVNZ3RpSzFrUGFsLXZEVFZkUnVha2ctRnlHcHBXU2VaUHliOWVpU2pmM3J1bG9YbzUzZVk3MmF0bzNQSHduQzhUWUVlTmdhVzBkSFdBelRBLWtrSXJ0WTVsZDRISVBhcDlPUkZ0QzBaWGMxcXBMTkxDUlpCdm5XSnhMOHZYMWtGblViLWg1?oc=5"
       }
     ],
     "stocks": [
       {
-        "title": "Stock market today: Dow, S&P 500, Nasdaq surge, oil plunges after US-Iran ceasefire sparks relief rally - Yahoo Finance",
-        "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQRWl4QTVnSnFXQk81RHJPeEFreU80YkpRM1dENjBjWWRzR1VoQWtMcmdFalhaMVZNUGVPYldYYWJVSk1WYmwtczZOTHByUkJnaWxXVWUwY09pRGk3dDJjVDF1SkVZR3NZZWFjbmF2WWxkZC1uYWpWSXdVNFc4bmlzckVVN2pPR2wwQThPWHJwT0xMQmZuVUdwWGtReEhaSWQ5ZTh0c1VwcFQwZHRiQlAzb28wNnBod3pmMXJsakEzSmtGZFAtS21wNGVQUHVra0lfdGdKaHpqU1hPS2RmOWt6OXJ1QQ?oc=5"
+        "title": "Stock market today: Dow, S&P 500, Nasdaq futures pause rally after Iran says ceasefire has been broken - Yahoo Finance",
+        "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNNWlWTW9vaUlheU5YSWctWF93WU1pa1pPTGticlUxQVFWRVNLWHZZMlZlT3Z0RzNyS0ZKWEcwSWFaSE1SUlJRbWtSXzFxWER5YllBdUxYWm9vaEJ2VUVoSTFBWXF3LTkyeENETW5NQk5oTnNBSjVWUzc0YVB5VWFDbWNLSDhuWS1LZ2pxUTJKZ29Ydk5wUExhOEpMOHotbmNpdG83TzVQLTE5dmJxR2tHeUtNRGphNVF2Q1duYl9ydVpMTTJGMGxNOEwwcGZfZmFfSm1ubHV2MTVHWlFpNjZCNnF3QQ?oc=5"
       },
       {
-        "title": "Stock Market LIVE Updates, Sensex Today: Sensex Drops 600 Points, Nifty Down 130 As Oil Prices Surge - NDTV",
-        "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNNzFmMnJQT2JDaXpVRFF5SzRST29UcFB3ZGdZbl9mc1pybk80MFlSVnVMMHFNb05QUnBjZzVWeGdiQVlEZ29YT3FReVpST0pkSkZ1OXo2d1cycjEyNnBObVA5RldIa0JBaDVZcXpwVmJ6S1ZhNjQzOGJHT2ZHTzR1RU44MlN2eFZIRjNsUnZqbHMzNGFodUhzeV9YaFdITW1WVXJRcWFYTlRmSlBVWXJjYWVHSlhMOVNMejN0bWdlM2hHRHBfV1NnS2dPV3puYlhOcTIzZEdDZ9IB3wFBVV95cUxQZTNIZkduTGJiTmx0Z2k4TFhCeW1Yd0JPWUtBUDhFXzJMaldCcW9FcWNpTFh2WHY0TmtyQlR3T0NBZHNNQ05IYlpDcHk2dC1QSXQzV1FVdkNYV0xJSnl1bm1aWVJveEcyalVlRUN5cnNOVl9NcEx6NFpPVFN0Vk1oalV0QXA0X25YdEJ0Z1d1a0czYmp2emw3SlJFRVgyNnloNVVxZm1kWGo3a1pubkt6SS0wTjdleDU0d1VhYUE5ZF9rX1VMUGp5TWJGTE5VdW00WjY4QmdZdENZTU5YQW0w?oc=5"
+        "title": "Markets Have Faced a Year of Chaos and Still Done Awfully Well - The New York Times",
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdmFwZVV2ZjRpVXdBNF93ekVpOVpjbzZadVhtanRwN1piWVhRRkxhVjY5OEItX29UX0ZBQjRrdzNlQWhWX25qZFJBejFTTXVCb3lBSENMa3Z0NkJwakVPVEgxVDVuRFBkSDlVNFZBMHZtUW93aENodGtfNzJPeG02cWRIaDc?oc=5"
       },
       {
-        "title": "Victoria's Secret and Lowe's Shares Are Soaring, What You Need To Know - Yahoo Finance",
-        "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNbEdpa1MwRjdFN09sN1lzTTRpdHNNVmVfbTBJRjhNYUNtYmFnN2lVZjVDVjlLTnhNb2VfOGZoN1h1OGxMOEVsanZoWWcxYjI0YkV4Qjk0akhJeWJpeHFQYWtLc1YzamtJWExzRFBmX3QydEdrQVV3enF4eXQySFA2dkZTNHpubEFxeC1GeWNwcGJBS2loZEN2dEVPZ280NXNEMmdjWA?oc=5"
+        "title": "An earnings boom is around the corner, and it could blindside the stock-market bears - MarketWatch",
+        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPUHotQlptQzJXMklQaXQ0M0IybnhzbTV6YmtmSi04aFVRenJvcXFQbmZrbFA3cVFZckN1WWt5U3Rka19LbnJFTmVZLWRVSFN1SDJDV2Uta1RhZlNxeHk4eXk1MmpESExlN0c2X0N3dmphZXFFR2JTUlQxNGxZczI0SFVKbHpFeVFaUWZhWHNMckp5SDlxeGhLVzhUVHdMUzFJMU45YmxuWEdZOE9CSXhUeHdUUzFNMUxMck1oVVgyeVVVNzBU?oc=5"
       },
       {
-        "title": "Bel Fuse, Enpro, and Installed Building Products Shares Are Soaring, What You Need To Know - Yahoo Finance",
-        "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUVJISTl5S3lSVFB2bEdKSE1JZ0hETHB6d3FQY3JwYk5ZdkUzeHRqNmlGZldXMnJJUlF2WU0xSDB0bG1wSV9rZXpoUUIxbk1iaVNJZkc2NWdlVVB0YmRhdHpxek5NLVFVV1l3Zmc1bEpHZVBGX1JJcXFPa01zejRjODVrRDNTOVoxU09jdWtoUHFlWnFINGszTEdjd1JUdWc?oc=5"
-      },
-      {
-        "title": "US Futures Waver as Iran Says Ceasefire Violated: Markets Wrap - Bloomberg.com",
-        "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSVJHUFZWMU9xUGhyNVlHWnd3eTB1OVJWTFFPUDJIOVdOTXN4QWRfc3IyZFV6T0lKQTFJNkVkVFlwQ3pISGlrY3N1MGNWajdsbWNtSEVSdjBLVGw0MlhVV0xoT1h0R05neTdLekNYb1pMY2xLSVBBM1FncnNvUzAzdno2OVFuT3ZQQVV1SFNSQ1lKZ0dk?oc=5"
+        "title": "Relief rally stalls as Middle East truce doubts drive up oil - Reuters",
+        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPU3F4cllYT1d3SEp2TTJhelQ4VllIYVNnQ3lxMnZGcmczbVpJRW5UTW5HY3NMZ1daQ2tabTR3V194bTFOZWJVSWd1dWFPN3pFcEFkWldsQmpYcW05Q0hFT0c1WUU2QmlEWFhVNFp0Zmd1MGl2NDZuaHBVQVZXWk01Z3JuOA?oc=5"
       },
       {
         "title": "A Positive Stock-Bond Correlation Is a Terrible Reason to Add More Equity Risk to Your Portfolio - AQR Capital Management",
         "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQcEY1NUlzd3JCOWNSNDV4MWhFeXhsOTkzbDU2cHVpbE8tTm4yUjl1dmlVM2FqQ1dQaFJ0RC14Q21PcUpHTFhmNnhZd0Y3SmFSX1d4TEdwdkJQc0V3TnhNZE1fRWZvd1BYQ1hmMmtLSTJ0T2tINHdueWM5YThQNVRaRzlKU0NYYk1xTVdjd1JBTVRUaTBPSjJzcmhiME44SjFCV0RHX3B5RzlUS1NFWThHcEF5UWZuNV9ySmlBWG96a1QyYzNtLUZSTkxIYU1ib3d5TlJVUQ?oc=5"
       },
       {
-        "title": "Stock Market Today: Dow logs 1,326-point gain, S&P 500 and Nasdaq end sharply higher as oil prices fall below $100 on two-week cease-fire deal - MarketWatch",
-        "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMHZWaC1ySk9MT3d3VURJeVBCV05uaTZJWjhDV0ptN3FrbFNYd1lvR1VRVUEzVWd1TUZ2SGtQYWFDamxHOENSTmk3WDRqbWtFT00wbG00aUc0MDlHWThyTUdRTnhIS2g2cTBfTjRQeTNXem9OVUc5emNhLVhHdGJsdHlGY19acGVBZUdzTWZ2UEtFLU5aZUhJUFlwelluMGttemNiZkdSR3h4TUxJS3RzQjd3?oc=5"
+        "title": "Oil prices plunge and stocks soar after U.S. and Iran agree on a ceasefire - NPR",
+        "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZ0FEUlJiX2xvRUlVcnpKaDFIYU12a0xwQUtyTTNBWDlMSURaZ2xsRkZ1TlNuLUF3NFhkM0N3TEtvRGEtRHVhRmVTd1hBcW4zd1gyM0hVeFBvaE9RYUpYLTliQWwxQWw5OG5YV3FkcDJieFNod1JYNjBSXzRYalRPa2dETkdkYVhZVmZlbWt6b2RGQQ?oc=5"
       },
       {
-        "title": "Stock Market Today: Dow Rallies 1,300 Points Amid Iran Ceasefire; This Chip Stock Breaks Out (Live Coverage) - Investor's Business Daily",
-        "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaEtrS096T2NYU2tzMHd3OURYNjlBRERwbzBMOW5zVTJPdDlQTUljWldsamFkVW9mdlBtaE1XTkpvQjBpSWpUd2NCaUpRMml5dDVLemFENlhvR0wyWDdreTRzX3FqVnlhd1lGNENsYVhfVDgtVkpjRENSc1JwVXJocGpURlR0WXRxMGdDZkRfSkMzSnVCalJFblFYcGRLRklHMnhCaGk3Wi05d1k?oc=5"
+        "title": "Stock market rebounds, oil prices drop following ceasefire - NBC News",
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSUd6NzU2dy1pS3dMVVBPUW5hakYtQzRsSUNvTTJHdC1zQndLMjRUaWF5bmd6OG9nbHp3aEJLS09waTZpSl8zUjhKM2V1Z1ktX2ZqOXZOMzl2YnpscFhEWGJhSHJEbTlULWUwUGx1UnlKNkxRLV9EZjZOYjgtMnJLclVFcjJvYWhpWTV1WmZyaF9wOVR2WENiRml2M0dQRGljRlBKdnQxZ2pBTkNMdzVtT2ZXUQ?oc=5"
       },
       {
-        "title": "Stock Market Today, April 8: Intel Surges After Joining Elon Musk Terafab AI Chip Project - The Motley Fool",
-        "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPb3ItZm9PUVdxaURyeGZ0NXp2R2l4ZGNzNC0xN21tZHVfVlBWV1FraUZpWkJZblVlaWY2cjVnUjVHOUphX0hoMjFxRU5GZmNUSzVtR09IcXVRQjEtSW54U3pqUGkzUEc1aXhSRDJxbHVKM28xZlVGVnVFMHRYUmVuOWN2ZllvMzZsaHg1WFpSdDRTRGd6RkdxWmw5a0pNVThlbVJTRWs2dnl4NXBEWlU1QlRwei1HeG9SQW9LLWp4MUhKZzBLcGtFLXlDdzRzTm5ndmtoNGQySlRqNkVjVE40TDJB?oc=5"
+        "title": "Oil price rises as markets question durability of Middle East ceasefire - The Guardian",
+        "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQb3Nqb2dnNDNvTk1RUzNpanZobDNpZTdZdThhOXRGcGxUZlhXb19mUDM3YjM1M0hVMmdvUkg5WTJuWlhDajM4Zm51Yy1TZm94Q1N4VEZsbkVEcFBKZmZfY1l1amZRRFFSZWgteU14OFU2bFVEVHQwT0ROUnlrUDVtV3I4emlMN2dDck02d2VORG9LOEhkNkN1OUd2eUd0OThEc3hObllQdU9XUEZQVWlzYmp2blZCVUIyeDJZN0VPNzdWS0U?oc=5"
       },
       {
-        "title": "5 Things to Know Before the Stock Market Opens - Investopedia",
-        "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOTzBObWJqXzU4UUxKX09oZkwxbDNzM3J5NnZNb1hNRWxQaVdCTUZOb0RHSzlkMEdhd1hfMWFSbEs0elZWanZJUUNSd3dzN1ZEVjdEbmFqMkh1MmJHSFVBbVBzMDhNVVdwU2FvODlrLW5RSDlNZVcwbGJTeHQ5V0ZmWm5yT1NkYkxkTVZZVGdhY1JnVnczYWZTVE1VclkyUQ?oc=5"
+        "title": "Weak Dollar Is The Real Threat To The U.S. Stock Market (NYSEARCA:SPY) - Seeking Alpha",
+        "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOV2JYeEt2NWVXaVh5LUxBWDg4WGtod2pBRjdhMnRBTzI1WkRzTVJnMUQ3aUlBcUNPWGhJRVBlS2t6Y1d0S3U5UFhMQkdDY1gwTUstMzdmZnYzbE84ZGdvWXdsNHBCaWxTOWsyMUJrQmdyeUJzcEpNemNzRG9XS2pnaVJHbEpCQlFaNzBUWTc3STQwVFBoeC1hdA?oc=5"
+      },
+      {
+        "title": "Iowa-based Casey's becomes member of prestigious S&P 500 stock index - The Des Moines Register",
+        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQS0dyYlFWLTl6NUZaekZiaWxPQjh0S1Y2MkJSRm9yaVlEalNrdlVlTjVLZHl1NDlqS1pzb1VNQnJ3Q2M3cEV6TlZLcFJRU0tiSjFzV0VnVkMxeklRMnltTjdITEh2bmtfQnZlSDZfejJ4ODlKVVRkWm54Yjg3ZVVVZnZEc3BMcUdrMHJSUlVxeExvNnhMZXdidm5IZzhBUUh1TEtRM25KYlRFSVNtVUtCUF92UWtfU1JmZ093aw?oc=5"
       }
     ],
     "war": [
       {
-        "title": "How Trump Took the U.S. to War With Iran - The New York Times",
-        "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9NMXkyWERJdUFOS09wNVpTYVF4QjZPcm5QNWEyNDB1a2NUWkdkZXdpUG1fN3QwMS0zcVZfWlRyaDhTQ2d1NENiY1NYWUM0SlJUNkdrRk05dW5WVjNERTFRT19BMlIyS0pmenFUdFRPWEVoYjU4?oc=5"
+        "title": "Live Updates: Trump threatens Iran as dispute over Israel's war in Lebanon casts doubt on ceasefire - CBS News",
+        "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOekJCZUFzWVQwcjdGZUFEVjlVWWs3ckhaUzZNMUJ4YlhKcVkxckVKYlNJV1l3d1kwSEtQVVNseUs0MXF3R19WdXJiRzlHX1hOLS04dWVUaEJhMkxuV2NraHFtTnFLLVdDclJSUktodVpuSFNyU05sUi1TMVJONW9qeG1XVlAxZlJEM1NlbFVLclRvYkV6VExwRWZ4cG1EVzI5UlN2d9IBqgFBVV95cUxNVDkwRkNqQ0V2S2pFZzVwclVrdHRhbDZEMGVTOXRlSlpnOWNfUEdzTGJUNTBUSGVSS1F4eUJTbHByVHBnVUFmRmRjQl9hd3pudEpjcHV4VXQyWVlZOTRMMWxkUEJGWlBOaEhKT3IzSHd1UFBWZlJoaDdPSmxhVVZlUGpIckRucTNZWmExbDRycWxNZ2NGUDB3RDRGek5KVExMUWlzc3A2aU1uZw?oc=5"
       },
       {
-        "title": "What has the U.S. war with Iran accomplished? - NPR",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOYlBqLWRBRFRrM3gzSnZXSmYtTnZXaUdpOHFqUGIxZFB2VlJwRDYxWTdoUlBEMS1zNFJOS00xNFNObkNrd0tCd3ZDZl92a3dzZG9ScDBSVHB4Mk5WcVJ3SG9xTjUwdXZqYVR4NW0wRkxTaDJmWHNKTS1qRE5JLTh0NlNnVHFtYklVYXFXX3JzOVRPNExnbmxScGJKOA?oc=5"
+        "title": "After Trump pauses war, Iranians fly flags of victory, not surrender - The Washington Post",
+        "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNTd2ZGtJRmRMS0ZXaTBzRG9NeklqTzV3TXBxeWFiT3d5UEU4cjd6dFdRM0RTdnB1WkVhSEdxdW5hX1B6R1R1MEhBR3FrVlp1MHFWemtoVGw3VUE2eTBQOXhodFI4bncyMk5qczRYRkJvdll5V2F6OFdKQnY4dVJVbHdfRDJkc1RTQXMyYlNyWQ?oc=5"
       },
       {
-        "title": "Iran war live: Trump threatens action if Tehran fails to comply with deal - Al Jazeera",
-        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOam1YbU1iLThPVG9qTWd3RXFNWTRqakFLLXlKcUwxUjFEenh2anAyVE44MGVjTnZzX0pZSkU2SnhCbFh5ZnE5QzdGMEUyeGpkMjVHOXl2SjJ1ZE9zRWdVUnNfUVRjMEVqbkJjWmNrNDg3SHdZQnhKRExCVE5lQVVUenlnOXMyVkxjelg2MkE0Q25kQmdoZjRLMm5kczZaZlUwWVh4R3FnQ29uMHlkT1JzLWlMeDhucnFpeGRtZFJ30gHDAUFVX3lxTE5IeDV5MHhDWHBwd3pHcjZpN1BsMEZBUm93SnBqcFZ4eGF1X3FiVTg0T2I0UGNlNTlwdjhNS253R2U1NXpqSlpydlpieVdNNGl6X2Z0TUJNckQ1LXlzUVFKR090cjFGZmtOQlZvS1p0cHYxa0xMUGx2NzBKS0RCaFNZd2NNbldpWERtWHVueTBDcWNoc0EzTkY2Q2FxbXc4QTdiZHQ1dUg0cFFuSmpxeHBuMXFJYWNlb2VYYklwSmlJb2dxVQ?oc=5"
+        "title": "Iran War Live Updates: Israeli Strikes in Lebanon Threaten Shaky U.S.-Iran Cease-Fire - The New York Times",
+        "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1TdTYtTGl2Q09qQTdacUpNVUlaN0Vncjg3dS1nMzF6cmo3OEpON0xkRWpJUEFnNWVjOFloQzNsT194ZVRoWW5MZHpsOFowbThfZlA0WkNnVXJlenljQkE1UUw1SG1GbFVIOFNLckMyVVBIV1NNYWpuTFdpT3pITzA?oc=5"
       },
       {
-        "title": "Trump warns of major war escalation if Iran peace process fails - Reuters",
-        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPMFEzUEk2UktwUExCbWdZb3V3akR1TW5RREtqVkJVaFpfdmV4R1ozS3VqU0IybTNTOHlBaWdteHZnRFMwVU4wV2p3MWRMS3BEenBYUENVWGdtOXo5MWQyampLendIcDlNOF84UHVocXZXM21rN19NNXhyOGQ4aWE2WE1LZkpkdlpTRHliVUk4eURNT21yWTNFV3NMcnNnRVdPU2dZUzRiemVDQUJfSFFQM3VFQWZoQQ?oc=5"
+        "title": "Donald Trump is the war\u2019s biggest loser - The Economist",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1aaGlzdmR4UUR0MTlnVXZPYnl5WmVodjFNUjVmVWphaFc0SEdXd1BQRlM4VTdXX01NeVpHMXNTRnp6SW9sOE9ITG13aVVmREtjX2hjbTlkZFYyWnpKYUk4?oc=5"
       },
       {
-        "title": "German Industry Posted Surprise Contraction Ahead of Iran War - WSJ",
-        "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNWXVoTWtHdUVzVURBR1VGQ3hNd3BNOHd1SDQzdDF0TXdyUkhnTHFHTEk4WDZZczBfeWNEUXFZakM4b2M1TW5JcEhYVVlnajFXZXplX1VtTE42ZjlGY0xjdEtvZHV1eFpndUVPZjhOZzRlWmxsQnd0SnFCWkhRZ1A1akRseTg5UktwRVNpTU9ZTGJ0V1lSSzNLY0xrR1pxY3c?oc=5"
+        "title": "Has US achieved its war objectives in Iran? - BBC",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5TcWNacTVrYlVPMWZIdGF6eFBBRWdzbkN2NHZGTHFoUkNXdGJCVjdZVU16VkY4X05QVGljVm5Rd2xXaFJPV3hfREVLUkZhUzZqbmRyUzBWcENHZw?oc=5"
       },
       {
-        "title": "Ben Roberts-Smith: Why decorated soldier's war crime case is so historic for Australia - BBC",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4xeVUwSTh1MDdkbFpLTE9NM1otU1h1TWVlM0RzM3hXc0ZNaXdYWGJUY2NGN0VaYUFtWkQtSjJNMTdaNUF4THJDRnY2NjFxN0JCX25kNWdjT19rdw?oc=5"
+        "title": "Exclusive | Trump Team Explores Punishment for NATO Countries That Didn\u2019t Support Iran War - WSJ",
+        "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQbnlQNVhzaGdNNW45N2xwWVZBZG9LYUNoTjFvOG1xTFU2cC1Xdl9VV3Btakxoa0stV3djejNJaU1KeVpaMkxqT1BiX25FOWZ3dk1XVW9tQ3lId1gzWkJXV0d3WTh6ZEQxVEVxeDdDekdnZ0Z5NXIyOEk1cWd2NnZ6T0VhRkltdWwyOTIwLVBTRlpGYU5FeE96Z2RhWHkxN28xejZsM1BKRzJ5UmNFZ09Td3ZjZjl4WEZq?oc=5"
+      },
+      {
+        "title": "Middle East crisis live: Israeli strikes on Lebanon are a \u2018blatant violation\u2019 of ceasefire, says Iran\u2019s president - The Guardian",
+        "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPc3Ztakk5YnFMcXozdEdSaXRxU1RQYnZNTm5rMm1mWktkNzctVzRqQ0tNekRvb2VtTkJjYmdVTHJKeDFxRWZfQ1pSV1BiYThkaDI2cEc5d2cyek9wbVU4NEl0bGpNQUMxb2c3SEROUHAzZFhTaHBZR0REcjBQMTlpTUYyMXdRSW9KOXY5VFVRWFJfQ1o4V09ITGdyV3Q0U05nYk9qWTdNeTBwYkdCR0lycEFmekNWVUlCdFZ0dlFaY3RtMmQ2ZnFtcU5XVTRiamRIbEFr?oc=5"
       },
       {
         "title": "'Poorly run, piece of ice': Trump targets Greenland again as Iran war deepens NATO rift - CNBC",
         "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNMTZ3aVN2WEZPbEVwMy1GOHJMMV9pLWRQbmNCM0lWRjNnbElVaVJMS2p4R1JUcUtISkVkazJUX0RQQU1MSVlVdTJrMXE1QTgxOUhGRnEybXZFcFRfSV9ORU5ndVV2MnFuajc3dmtERkp3bmRLaGd1LWF5SnlPMW5Oay1yMmx0UdIBiwFBVV95cUxPYk9kaUktM1FtOFVGZ3hTd3dHNnViZ2NmYUFzR2RqS29NTXU4ZHdPcXhWcS1tT3pySjlEWk9oNFdGazRqMGFjSlBJa3hjS285MnVIRC1CRmpaaXpXZTN4TzNiLVplU3dYU3M1Y28xTno2ci1ZcjJEZTBOUEprWWRwWDlKV1pWVXhLa2lN?oc=5"
       },
       {
-        "title": "In a war with no winners, Netanyahu looks like the biggest loser - The Guardian",
-        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNRFFsXzdFQXgzczBxbU0tRjI3SzJfMEVJaFN6SmRIdHhvTFU4SUVnbVlJSW5razNVN3RHNWZmX3VGMGZPZ0JXbzUxWGFPQkRxb1diUHl3Vzk3X2twQTdlUEtqN0lIUE9UT0xtcVVqRFhsRG9YT1JiQXdEZW5DeWRrME9SbWZKMlRuajZ3TDMyTkV5T1BrNmlYdTJiUXQ4ekYtbFE?oc=5"
+        "title": "Rare nationwide protests in Japan against Iran war - CNN",
+        "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWHpXMWZEZ1B4UHBmUy13Sy1URlpKY2tVZzBkeVZyRzFuV1A3X2dCSzVGSzVKUG9fNDR3SWxHQk9DaGhyenp3Z3g4d2FtcWxTR2ZSTG0yRUJGdTNoNnZhR09hMW9BTFlpMjZvU3dGazFYeW9FYXl5ajMweGMtRUpIRnZBZFBfWVUzYlE?oc=5"
       },
       {
-        "title": "Day 40 of Middle East conflict \u2014 Israel attacks Lebanon, Iran stops shipping through Strait of Hormuz - CNN",
-        "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE45WVdrUzAtbXJoMFBfb3VYWnJZS2M5TVlJYVJ6anZMRmtUak9ITURsNU9QRWY0djJfc2dNQWVpaHhmak1QN1Nmd3ctWWJ6a1k3Tl9iOWJQdkdURTNNc0ZnUHpzQTRzVllkaC10dzRyZEZwc2Q1anJZRHh3alM4Qkk?oc=5"
-      },
-      {
-        "title": "UK house prices fall as Iran war uncertainty dampens demand - BBC",
-        "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE91bXJaOXpuLTBjMXB4aS1JcGc3ekNuaC14eGFGSHMxdElybnNmbDNlS3gzSFpIRkJQb3NmaUZCZXRCeURjbnczeUYyUkhGaWRvNkQ2STl3MkxPeGZT?oc=5"
+        "title": "Iran war live: Israel\u2019s Lebanon attacks threaten Tehran\u2019s ceasefire with US - Al Jazeera",
+        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOam1YbU1iLThPVG9qTWd3RXFNWTRqakFLLXlKcUwxUjFEenh2anAyVE44MGVjTnZzX0pZSkU2SnhCbFh5ZnE5QzdGMEUyeGpkMjVHOXl2SjJ1ZE9zRWdVUnNfUVRjMEVqbkJjWmNrNDg3SHdZQnhKRExCVE5lQVVUenlnOXMyVkxjelg2MkE0Q25kQmdoZjRLMm5kczZaZlUwWVh4R3FnQ29uMHlkT1JzLWlMeDhucnFpeGRtZFJ30gHDAUFVX3lxTE5IeDV5MHhDWHBwd3pHcjZpN1BsMEZBUm93SnBqcFZ4eGF1X3FiVTg0T2I0UGNlNTlwdjhNS253R2U1NXpqSlpydlpieVdNNGl6X2Z0TUJNckQ1LXlzUVFKR090cjFGZmtOQlZvS1p0cHYxa0xMUGx2NzBKS0RCaFNZd2NNbldpWERtWHVueTBDcWNoc0EzTkY2Q2FxbXc4QTdiZHQ1dUg0cFFuSmpxeHBuMXFJYWNlb2VYYklwSmlJb2dxVQ?oc=5"
       }
     ],
     "crypto": [
@@ -133,8 +133,8 @@
         "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPUk5MRzFpV3lrM3hIQW9JRUNBOG1meEE1eUNVc3BBMm1faHpHX3JCY0xCRHB3VHdRNEF5NDk4cExKN2l6RzFFOEJsZVZjaFlxUS11dE9KVlE3Ujc4RUp3dkYyZmtReklBblgtNHROQW1UZlFENUEyQTBsOVVvWTJONDkxZC12QUk3ZnllMnR6UU9obGFPUlNpeFdNOWtDX0nSAaQBQVVfeXFMT1p5NFNkbUxGSVk2bDM2VDN0SzZ4VXhYcHpkUV9jUWxPSW8zN3JXc2RtcUo0emhva0tGUDJmTGxtN0FnUVdicWRoaUplQmVISnFuZEdKcEExd1g0a0QxWWNaNVFsVy14SndoVnZ3U0ZpQ3Y1bm1xMGxaU1VhWkNzcHpZSEp2SmxSMVpObm91OWFaUFdkR2MyaDBZbEhJQ1FEWUNfRWc?oc=5"
       },
       {
-        "title": "Iran demands crypto fees for ships passing Hormuz during ceasefire - Financial Times",
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOcXBaVV81aXNINXFaMWMwZVh5RGlxQmdBZE9va2M0cEZpODRBTWpPTC1SdFNBTWg0cFgzZTlXaU5JelpTa3hNZ3BZU0hzdG4yNGVYT3pzSDFpNGoyZDdxMkk5MHMwclJkUzV1a2t4YWdnNW9QMUQ4alZaT2pnblNqbmthX1M?oc=5"
+        "title": "Iran's crypto tanker tolls are the latest step in its sanctions\u2011busting trade network - CoinDesk",
+        "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOdk5mcnlNMElLaFlmMlplc3FpcHFWLTN1M1FsODBYN3Z0Zk9yRUx3Y0o3OFFXTWI0MFZVMllRM0Z6Rm92dFQwZG9ma1lCcTE2TkhKczljeTYtVHo4ckJnRWV5aUZxOVNXOGNPbFVLTUlTY0VRVlljYnU1NTVOMk1SdWZGMTFncUZZMTZnRkZlZkpfSDFWdTNPSm81c0VUdzB6VUlNMWE4LTh4d3lqbGlRSGY4Vl9LSjg5NktWYWRNVGM3c19YNWcySWlIODRLUTFhZ0tROVdJc2kyWkhJZGhVb2xCUWdXalU?oc=5"
       },
       {
         "title": "Bitcoin payments allowed for Hormuz tanker tolls as Iran seeks up to $2 million per ship: FT - The Block",
@@ -153,20 +153,20 @@
         "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQN0xNUXN6ZmhGQ2N3UlZsNThpdEpBeHM2ek44NU5lM1BRdndyUnRYSThKWl9OUmtuNWpscGplRHVYU28wbkZxX0VWZWZnUzRCNEFkUzByUEFBR2RCYTFKWkxkN0h6VnU3cHVDNlVHb001YWI3ODYteGVWbGg4RTFhd2wzM2lLNUJuVlFZRTlnMTFoNFUyQjZzWHNFNGVzVWZEMWd5WFRlUGtqT19aQkRRWHdtQVF2YW9pY1g1MjZOc1ZGZEZIb3c?oc=5"
       },
       {
-        "title": "How The Trumps Blew $1 Billion On Bitcoin - Forbes",
-        "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOeUxJTFRtZU5MLUJzSlVwby1pT084TUs4bk9Xb1Z0eHIzZERkRFNrTVZYc1JwWXFmWHVJUjd2ckNsS1JOaTFZTmZqQjR4dE85anF6UjNRUFNpS2xxbVR1UmtaYTJXUkl0RG9JT3JYbTlWb0hyVm1qMHRuYktIT2NReFV6TUdDNkNDQ0ZwdThfVjYtZDRrLTUxYm5B?oc=5"
-      },
-      {
         "title": "Teen-Soap Star. TV Detective. Crypto Truther. What\u2019s Next for Ben McKenzie? - Rolling Stone",
         "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPdkFYZndZcVNyU3pOYk84Y0FUMXBDWFRZc25QOUI4WHhIakhHeUJIb3lvcHJ0QXJfZE9IcGJFX1BXazU4RU5xcDRiM3VVQ2ZRUDdqVGd5dkY5X01jbXhDNTdRN0M0bHh4QkxuTVByRnRvUTNuYWRaVHFqRkd2ckp5ZTY3UzNnR095T3JMZ0s5cFZBYVdaam9uOXhreHQ?oc=5"
       },
       {
-        "title": "Morgan Stanley Debuts Bitcoin ETF as Price Slump Rattles Holders - Bloomberg.com",
-        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOa1pLTDVzQ1hwN0lNeU9ZVi1RR1A2TEl2MWVEdXNMdTN6YlQ1aTlsc29jVVMxaDMwSzdYZGJDVVg5MTAxeUJGekJReTF4UzZrT01WX3B4WTVYZDJHQzdGemp6MEJ3S3liLUtvWjlQU05fcldsaUZ1RjhwNmlMUnJlbW5wc2FZVXprNHFGN0xIOGxTWF9ZYjFfalFNSG9WdkR3anVRUnU3Z0dxQldCWFFiMVdZbVMwdw?oc=5"
+        "title": "Crypto Embraces Regulator-in-the-Loop Strategy as Federal Rules Roll Out - PYMNTS.com",
+        "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPek1tSDk2NEJEODBic09qUWxfYkFBanRnZy1ydGhZVjFUcFBhRXczVGpwZTNDS1hrYkVpSjFtdExCM0U5MkVHWVR5MGw3clFyQ3dhWC1QZ01yaUpHVm9pb21INE5nZVNhRnlCcVBBeldGYkduekVRVFh6SngtQmlEd2t6ZmMzb2c4YnlDR2lVTTJ4TUIzbm91T3ZZckNmbVRwblhwR2dIeV9pVEotREE2ZUNWaTFUZFU?oc=5"
       },
       {
         "title": "The 7 best crypto exchanges in 2026: Our top picks after hands-on testing - Yahoo Finance",
         "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOQm9IQ1lKWEtIN3pURWVlNHNQWEFQWUVORTR5NEFHUGdnemV3cG9OYzlGcV9tNERuWHM4ekQ2NGU0QkVlUl9LUnJWbnk2LU9YVnZLajNhMm56dHlubC1SOXVsNmlYVGFDWU4tOU5WMVBhUVpxS01uMEt1ejE3M2pGYnV0a2hlUWQ1eWlHdlJPZ2V5MGc5NGRLeU1QcE9HQQ?oc=5"
+      },
+      {
+        "title": "Donald Trump\u2019s Billion-Dollar Bitcoin Blowout Exposed - The Daily Beast",
+        "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQTm1Zak5FZm94RXR4VDdpTDlKQkxVLWVCTV9qQ0FnUnVROF81RGJDQjM3LWFoOUcwSXhMck14Y0NfUHNpaHBzOFM5RmFlVExSeVFKNmZJRjhaOThKb0FfX1NCdHhIdVd0NUpTVmU5WjVMa1l6TTZTNUZkaHR6czFVQ3l0b1hiQV9IdklF?oc=5"
       }
     ],
     "cyber": [
@@ -175,24 +175,24 @@
         "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBfQUdtMDZYaEtZV0JMSk1ZSzdqTl9mV3dQTnZYcVEzaHo4cV8yUEl2a25QMWRXenFTYUQ3NF9WakR5WXVwaDRTZC1ZYw?oc=5"
       },
       {
-        "title": "Iranian hackers are targeting US energy and water sectors, federal agencies warn - Politico",
-        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQm5ERDFLcHhnbFdsUFJqaWctUE0yQV9VRlA2eTdWcndvN0ZKUVk3dTRUajhLQVFNajFQNG5TR1ZYalhWZjVUS0gzWXlOSjNIUGdhS244ajNSemlVcjJwRmJKRmNnLXNxYXZYSWVZMEZueDZTdzdBM2ctck4yMmoyTXJqY3FaRlZrdWZwMk5PdHdRNzdwWEEw?oc=5"
-      },
-      {
-        "title": "Brockton hospital hit by cybersecurity incident, services affected - WCVB",
-        "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPRjlobklZdXpSN0ZWRHN2R2Z6X2NIV1hkT293Y3g1U0Y1bVNudC0weGpfLXkxa29LUUJpRFJqVmNnQUhxSXhUVFBUeFRGbDRCd0NySm9QdldJdHBDTFBQbGVpQ05tRDQwcGkwNmNzaWprcXlCdlVSUTViNUtFTmlRRnBwNEJnbktfTzZjM2dMUm1YSmlEREE?oc=5"
-      },
-      {
-        "title": "Cybersecurity incident forces Brockton Hospital to use paper records - The Boston Globe",
-        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQT1hHR2ZwbG1pVGhJeFZQaHZMckE2UUFwbEl6Z2VlWXE4QnRrNlJoXzFLSHlVbUdHRUp2QmJZUVFoRzhYVWx0WWJuZG5adnl3WHNYZ19fM1FnNUU1Yjl3YWdCTldBMGVhc29GSGRPX1YyMmIwVnM3M3cyelFSU0tnMXd6QQ?oc=5"
-      },
-      {
-        "title": "Mass. hospital diverts ambulances, cancels services after being hit by cybersecurity incident - Boston 25 News",
-        "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQVDFrYXhILTRGZVBudThROTRJd2pfVF83Tkc3Z1VoMzRvc1pxOVZtVUxMWVZ6eXhucWl2TU1UV01YNkh3T0tYN09OUDlLUUhNb0RqZlltTXloeXIwbzRKNzVpQ25NcHluWXA5RG1RYTJudG9UTTFndGlWOTdqaXJOVFkwcjZENEdnc0NIQTRaZlpjdVV4eG41alhLSDFZeGdzR2FjcC1CUGd6RVpOZU5uWnhTM2dyM2FaYUlKWUE3NkNlbVY5dHdqQmM4SFpNLVdIemhibm9FLXp0UjkxUHZZOHJSdmFzMGFvZmo2TFQtLVbSAYQCQVVfeXFMTWZmVU9TTVFJMFNOV2NUejdXWFAzZm1Id3Z6Zm1Gb0M0TmFzeUtfb3RwWC14UERVcjZIekJPQWpGc25XSm14TkM1bF9tQkVQR3AwOVF1VFBUWmJybXFDNW5QRXk1Vjd0OTN3bXRwZlRnRFVxNm5Dd3E2TFhJMW1ldEd0eThXdGQxOEJGSEozUTFlZzBpWlVnWlc5QzIyQmprM1ZHc0NVX3Y1czFtcDdmQ1Nzc20taHFkZy11SEJEWjNhVExJT0VHMThjdk9Sa2RFcTJLZ3BDeXVaLVg4QkdVbDJtYnhERzJ5TThNSWRMTl9QalM3ZVUyY1huRmpaRTRjUWVrTHQ?oc=5"
+        "title": "Why DC Power Regulation Matters for Cybersecurity - Manufacturing Business Technology",
+        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWkF2ZGh6ME9PS09saHh4T0VPWDgwZEtVQkFYMEZIOFUtb2hyYkJfalMzX3ZzUFJQejdtdkZtT0FvcHhmYVV6RlA1cnNLeEw4b3MyVkE3MHZsQU5yWEU4TDdhMXFNNzRwOEp2M0pXejJ5MGttNzh0VkFaZm8yT0ZFb3pGeFcyQ0RkcjZIaWROVWdFVEQ3aXNMMG1ScV93WEZVdEE?oc=5"
       },
       {
         "title": "New Chaos Variant Targets Misconfigured Cloud Deployments, Adds SOCKS Proxy - The Hacker News",
         "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOc05jY0ZhQWlGS0ZyaGFVblNBVzg3eTdOR283YWlySTE5S0xHajFnNk5JeERFcVR4LU5tSkkyZ29MR19NUUZBeWxDdmV0SHNyNDI1Q1AxaUkyWE5tY1puWG5vOV9LRDVZM1ZELUkyc2hHS1pZd042UUJQeXZzV3pxc0JzdVI?oc=5"
+      },
+      {
+        "title": "Iranian hackers are targeting US energy and water sectors, federal agencies warn - Politico",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQm5ERDFLcHhnbFdsUFJqaWctUE0yQV9VRlA2eTdWcndvN0ZKUVk3dTRUajhLQVFNajFQNG5TR1ZYalhWZjVUS0gzWXlOSjNIUGdhS244ajNSemlVcjJwRmJKRmNnLXNxYXZYSWVZMEZueDZTdzdBM2ctck4yMmoyTXJqY3FaRlZrdWZwMk5PdHdRNzdwWEEw?oc=5"
+      },
+      {
+        "title": "Trump\u2019s \u2018cease-fire\u2019 won\u2019t stop Iranian hackers for long, cyber experts say - Fortune",
+        "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTWNmN0p5S2xESTZoZWMxQkp2NUxPanhvVndSRXhsYnJEWHRjeGp6dFVBLTNuNmZZOFZtZnpPclB5dnVla1ZfUDY4Z2tZeG0zSTBhUU9CRU96ZGhaNGZ2Nk9lN2JBN0lkcHA4bHlmLW5hekdrZ3RuckdyUVF2TENfclJSUmlvZmY5NUxKQnRWa1RrUDNWbnM2a2ZWQzE5aFJBYUJ3Zg?oc=5"
+      },
+      {
+        "title": "Iran-linked hackers target water, energy in US, FBI and CISA warn - Cybersecurity Dive",
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNLS1TeDFDVHJfNlZkTlVFd2hmRHNVQWxTcUlUY0xsWmVSZDAtaWJ1NVNEcmpnSE83N3lXSkVidGhwRkRaTlJvbkNqN3EtaEhzbzd2UDRYdUV6LXdRaGFTc2tISE9zWEozRzg3N2FZeWdhOWpPdjRmNlM2UVpIZzFvYzNCRmstU0VoWmNXNjJESm4zam9LNUFtclgyQkdaQXhiYmczT1NlSHhOa3hqNHlpdnZpNA?oc=5"
       },
       {
         "title": "The Market Just Crashed. Should You Be Buying SoFi, Meta, and Cybersecurity Stocks Right Now? - The Motley Fool",
@@ -207,8 +207,8 @@
         "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNY1FldWI0R2Z6d3dzeVJkbExhR2I2U01UcVRWNUdxSVc1UmoyaDFUUXdYVmJrUFNBcUlualZvWHNGaHkwUjZ2Ym5MUlpLcDdKMzBfNHZFZUxNdXNuTmx2U1M2Tl9ROGtIbFRncHBCeHRQby1IQkE3cGRMNzhYb3NURGlnZWVpY2hZSEVqTkN4d0NMYzRRU2w1OTJ4RnFvWFp4aUE?oc=5"
       },
       {
-        "title": "Trump administration plans to cut cybersecurity agency\u2019s budget by $700 million - TechCrunch",
-        "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQX2lPSXFBY3NsdXVYcVUyVFdvZFdLSDIzVkJ3QTRzSkxwVmxKZDU5ZGpaNDNRNFprRTRrVmJLU2NNWk9tUWRIRjYtQ21xbi1GNTlKaUNCbXpvOFNFT0hFQm5YdS1PVDZmZ1NuNktjSjNaQkFndklIekZzYW1ZbFRHbGhwVUl0NHl0YWZGNFQxUUU3b2Nw?oc=5"
+        "title": "Ongoing cyberattacks targeting internet-connected PLCs disrupt US critical infrastructure, agencies warn - Industrial Cyber",
+        "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOVTVfeEtCZmgtS3dmSHd4bEUtR1hjSUtzdjNYSkR1c1dDbXVHR3lXaGVzSklZbEVDTTE2Zzk2Sjc5N0lvUmowNnZBNHRwTDR0RGE5bTFpaWtZZzlpVHotdEdSWnZBVXF5UHJPOEZWQU0yaFJXQWNoUlNVTGRRUDY4Q1JHeXc4VlhZRElHMmFubnoxdXFpQkpvRXIzenUyY19mWGdNM0UxalBKOExFTWRhck8wRVdzTWt6alpTTkpKTDZ6NlIzTmloekVudG9JV0RRS2c?oc=5"
       }
     ]
   }
