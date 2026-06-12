@@ -1,6 +1,7 @@
 import CategoryCard from './CategoryCard';
+import LeadStory from './LeadStory';
 
-export default function NewsGrid({ newsData, loading, error, activeFilter, searchQuery }) {
+export default function NewsGrid({ columns, loading, error, masonry, lead }) {
   if (loading) {
     return (
       <div className="news-grid" id="news">
@@ -25,36 +26,27 @@ export default function NewsGrid({ newsData, loading, error, activeFilter, searc
     );
   }
 
-  if (!newsData) return <div className="news-grid" id="news" />;
+  if (!columns) return <div className="news-grid" id="news" />;
 
-  const query = searchQuery.trim().toLowerCase();
-  const visible = Object.keys(newsData)
-    .filter(cat => activeFilter === 'all' || cat === activeFilter)
-    .map(cat => ({
-      cat,
-      items: (Array.isArray(newsData[cat]) ? newsData[cat] : [])
-        .filter(item => !query || item.title.toLowerCase().includes(query)),
-    }))
-    .filter(({ items }) => items.length > 0);
+  const visible = columns.filter(col => col.items.length > 0);
 
   return (
     <>
-      <div className="news-grid" id="news">
-        {visible.map(({ cat, items }, idx) => (
+      {lead && <LeadStory story={lead.story} section={lead.section} />}
+      <div className={`news-grid${masonry ? ' news-grid--masonry' : ''}`} id="news">
+        {visible.map((col, idx) => (
           <CategoryCard
-            key={cat}
-            category={cat}
-            items={items}
-            animationDelay={`${0.05 + idx * 0.08}s`}
+            key={col.key}
+            category={col.key}
+            label={col.label}
+            items={col.items}
+            count={col.count}
+            onMore={col.onMore}
+            wide={col.wide}
+            animationDelay={`${0.05 + idx * 0.07}s`}
           />
         ))}
       </div>
-      {visible.length === 0 && (
-        <div className="no-results">
-          <p className="no-results-icon">◎</p>
-          <p className="no-results-msg">No headlines match your search</p>
-        </div>
-      )}
     </>
   );
 }

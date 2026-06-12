@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { quoteOfTheDay } from '../quotes';
 
 function formatDate(dateStr) {
   if (!dateStr) return '—';
@@ -13,6 +14,7 @@ function formatDate(dateStr) {
 
 export default function Header({ date }) {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'system');
+  const quote = quoteOfTheDay();
 
   useEffect(() => {
     if (theme === 'system') {
@@ -60,6 +62,9 @@ export default function Header({ date }) {
         <div className="rule-line" />
       </div>
       <p className="tagline">Intelligence · Curated Daily</p>
+      <p className="masthead-quote">
+        “{quote.text}” <span className="masthead-quote-author">— {quote.author}</span>
+      </p>
       <div className="header-red-bar" />
     </header>
   );

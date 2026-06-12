@@ -1,19 +1,12 @@
 import { useEffect, useRef } from 'react';
-
-const CATEGORY_META = {
-  tech:   { label: 'Technology' },
-  stocks: { label: 'Markets' },
-  war:    { label: 'World' },
-  crypto: { label: 'Crypto' },
-  cyber:  { label: 'Cybersecurity' },
-};
+import { categoryLabel } from '../categories';
 
 export default function NewsTicker({ newsData }) {
   const scrollRef = useRef(null);
 
   const items = newsData
     ? Object.entries(newsData).flatMap(([cat, articles]) => {
-        const label = CATEGORY_META[cat]?.label ?? cat.toUpperCase();
+        const label = categoryLabel(cat);
         return articles.map((a, i) => ({ id: `${cat}-${i}`, label, title: a.title }));
       })
     : [];

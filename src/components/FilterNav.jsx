@@ -1,37 +1,51 @@
-const CATEGORY_META = {
-  tech:   { label: 'Technology' },
-  stocks: { label: 'Markets' },
-  war:    { label: 'World' },
-  crypto: { label: 'Crypto' },
-  cyber:  { label: 'Cybersecurity' },
-};
+import { categoryLabel } from '../categories';
 
-export default function FilterNav({ categories, activeFilter, searchQuery, onFilterChange, onSearchChange }) {
+export default function FilterNav({
+  categories,
+  activeFilter,
+  activeTopic,
+  pinnedTopics,
+  searchInput,
+  onFilterChange,
+  onSelectTopic,
+  onUnpinTopic,
+  onSearchChange,
+  onSearchSubmit,
+}) {
+  // A section tab is active only on the curated view, never mid-topic.
+  const tabClass = (key) => `section-tab${!activeTopic && activeFilter === key ? ' active' : ''}`;
+
   return (
     <nav className="filter-nav" id="filter-nav">
       <div className="filter-inner">
         <span className="filter-eyebrow">Section</span>
-        <div className="filter-pills" id="filter-pills">
-          <button
-            className={`filter-btn${activeFilter === 'all' ? ' active' : ''}`}
-            onClick={() => onFilterChange('all')}
-          >
+        <div className="section-tabs" id="filter-pills">
+          <button className={tabClass('all')} onClick={() => onFilterChange('all')}>
             All
           </button>
-          {categories.map(cat => {
-            const label = CATEGORY_META[cat]?.label ?? cat.toUpperCase();
-            return (
-              <button
-                key={cat}
-                className={`filter-btn${activeFilter === cat ? ' active' : ''}`}
-                onClick={() => onFilterChange(cat)}
-              >
-                {label}
+          {categories.map(cat => (
+            <button key={cat} className={tabClass(cat)} onClick={() => onFilterChange(cat)}>
+              {categoryLabel(cat)}
+            </button>
+          ))}
+          {pinnedTopics.map(t => (
+            <span key={t.query} className={`section-tab section-tab--pinned${activeTopic === t.query ? ' active' : ''}`}>
+              <button className="section-tab-btn" onClick={() => onSelectTopic(t.query)}>
+                {t.label}
               </button>
-            );
-          })}
+              <button
+                className="section-tab-remove"
+                onClick={() => onUnpinTopic(t.query)}
+                aria-label={`Unpin ${t.label}`}
+              >✕</button>
+            </span>
+          ))}
         </div>
-        <div className="search-wrap">
+        <form
+          className="search-wrap"
+          onSubmit={e => { e.preventDefault(); onSearchSubmit(searchInput); }}
+          role="search"
+        >
           <svg className="search-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
             <line x1="10" y1="10" x2="14" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -40,13 +54,13 @@ export default function FilterNav({ categories, activeFilter, searchQuery, onFil
             type="search"
             id="search-input"
             className="search-input"
-            placeholder="Search headlines…"
+            placeholder="Search any topic…"
             autoComplete="off"
             spellCheck="false"
-            value={searchQuery}
+            value={searchInput}
             onChange={e => onSearchChange(e.target.value)}
           />
-        </div>
+        </form>
       </div>
     </nav>
   );
