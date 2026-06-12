@@ -1,141 +1,97 @@
 # The Brief — Daily News
 
-A two-part news digest that (1) scrapes curated Google News RSS feeds into a structured JSON file and (2) renders a magazine-style front end called **The Brief**. Use it to produce a lightweight mini paper that can be refreshed on demand or on a schedule.
+A magazine-style news digest. **The Brief** pulls live headlines from curated Google
+News feeds, shows a real-time market ticker, and renders everything as a newspaper-style
+front page. It runs as a React single-page app backed by serverless API functions, with
+no database and no build-time data — every load fetches fresh.
 
 ## Live
 
-The application is accessible at:
-
 https://news.npalakurla.com
+
+## Tech stack
+
+- **Frontend:** React 18 + Vite
+- **Backend:** Vercel serverless functions (Node, no framework) under `api/`
+- **News source:** Google News RSS (fetched and parsed on the server, per request)
+- **Market data:** [Finnhub](https://finnhub.io/) (requires an API key; falls back to demo prices without one)
+- **Hosting:** Vercel
 
 ## Repository layout
 
 ```
-news-app/
-├── data/
-│   └── news.json          # Latest cached headlines + metadata (generated)
-├── scraper/
-│   ├── scraper.py         # RSS fetcher -> data/news.json
-│   └── scraper.log        # Optional log output from manual runs
-├── web/
-│   ├── index.html         # The Brief UI shell
-│   ├── script.js          # Fetches JSON, builds ticker/cards/search
-│   └── styles.css         # Newspaper-inspired styling + responsive rules
-└── requirements.txt       # Python deps (feedparser)
+the-brief/
+├── api/
+│   ├── news.js            # Fetches + parses Google News RSS for 5 categories
+│   ├── quotes.js          # Finnhub stock quotes for the market ticker
+│   └── search.js          # Finnhub symbol search (ticker autocomplete)
+├── src/
+│   ├── App.jsx            # Root: fetches /api/news, holds filter/search state
+│   ├── main.jsx           # React entry point
+│   ├── categories.js      # Shared category metadata (labels + icons)
+│   ├── index.css          # All styling (newspaper theme, light/dark)
+│   └── components/
+│       ├── NewsTicker.jsx     # Scrolling headline marquee
+│       ├── MarketTicker.jsx   # Live stock ticker + symbol manager
+│       ├── Header.jsx         # Masthead + light/dark theme toggle
+│       ├── FilterNav.jsx      # Section pills + headline search
+│       ├── NewsGrid.jsx       # Lays out the category cards
+│       ├── CategoryCard.jsx   # One category's headlines
+│       └── Footer.jsx         # Live clock + last-updated time
+├── index.html             # Vite HTML shell
+├── vite.config.js         # Vite + React, proxies /api to localhost:3000 in dev
+└── vercel.json            # Build command + output directory
 ```
 
 ## How it works
 
-1. **Scraper (Python)**
-   - Uses [`feedparser`](https://pypi.org/project/feedparser/) to hit 5 Google News RSS searches (`tech`, `stocks`, `war`, `crypto`, `cyber`).
-   - Truncates each feed to the top 10 stories and normalizes to `{title, link}` objects.
-   - Writes the payload plus a timestamp into `data/news.json`.
+1. **News** — `api/news.js` fetches 5 Google News RSS searches (`tech`, `stocks`,
+   `war`, `crypto`, `cyber`), parses the XML with regex (handling redirects and CDATA),
+   and returns the top 10 stories per category as `{ title, link }`. Responses are
+   cached at the edge for 5 minutes. The React app fetches `/api/news` once on load.
+2. **Markets** — `MarketTicker.jsx` calls `api/quotes.js` for live prices. Users can
+   add/remove symbols (persisted in `localStorage`); `api/search.js` powers the
+   symbol-search autocomplete. Without a `FINNHUB_API_KEY`, both endpoints return demo
+   data so the UI still renders locally.
+3. **UI** — headlines populate a live ticker, category cards with section filtering and
+   client-side headline search, plus a light/dark theme toggle.
 
-2. **Client (static web app)**
-   - `web/index.html` loads `web/script.js`, which fetches `data/news.json` (the scraper now mirrors data into `web/data/news.json` so the static bundle stays self-contained).
-   - Headlines populate:
-     - A live ticker marquee.
-     - Category cards with counts, numbering, and outbound links.
-     - Search + filter UI (client-side substring match).
-   - Includes loading + error states and a hint (`python3 scraper/scraper.py`) for regenerating data.
-
-## Prerequisites
-
-- Python 3.9+
-- pip (or another installer) for Python packages
-- Any static file server (Python's built-in `http.server` is fine) to view the UI locally
-
-## Setup
+## Local development
 
 ```bash
-cd /home/agent/Projects/news-app
-python3 -m venv .venv && source .venv/bin/activate  # optional but recommended
-pip install -r requirements.txt
+npm install
 ```
 
-## Refreshing headlines
+The frontend and the serverless functions run separately in dev:
 
-```bash
-cd /home/agent/Projects/news-app
-python scraper/scraper.py
-```
-
-- Output goes to `data/news.json` (relative path handled inside the script).
-- A simple `print` log shows which category is being fetched; redirect stdout/stderr if you want persistent logs.
-- Schedule via `cron`, `systemd`, or any task runner if you need automatic refreshes.
-
-### Customizing feeds
-
-Edit `feeds = {...}` in `scraper/scraper.py`:
-- Change the Google News search query.
-- Add/remove categories; the front end reads whatever keys appear in `news.json` and builds matching UI (labels + icons defined in `CATEGORY_META` inside `web/script.js`).
-
-## Running the web client locally
-
-```bash
-cd /home/agent/Projects/news-app/web
-python -m http.server 8000
-```
-
-Then browse to <http://localhost:8000>. Because `script.js` issues a relative fetch (`data/news.json`), run the server from within `web/` so the sibling `data/` folder is reachable.
-
-## Build & deployment
-
-### Local build artifact
-
-```bash
-npm install          # already done in the repo
-npm run vercel-build # copies web/ into public/
-```
-
-- The build script lives at `scripts/build.js` and simply mirrors `web/` (including `web/data/news.json`) into a throwaway `public/` directory.
-- `public/` is git-ignored; it only exists so hosting platforms expecting a single output directory (like Vercel) can pick up static assets.
-
-### Vercel
-
-- Project: [`nkaringas-projects/the-brief`](https://vercel.com/nkaringas-projects/the-brief)
-- Build command: `npm run vercel-build`
-- Output directory: `public`
-- GitHub integration: `Nkaringa/The-Brief` (push to `main` → deploy)
-- Manual trigger (if needed):
+- **Full stack (recommended):** use the Vercel CLI so `/api/*` functions are served.
   ```bash
-  vercel deploy --prod --yes
+  npm i -g vercel        # once
+  vercel dev             # serves the app + api/ on http://localhost:3000
   ```
+- **Frontend only:** `npm run dev` starts Vite on `:5173` and proxies `/api` to
+  `localhost:3000` (see `vite.config.js`). You still need the functions running on
+  `:3000` for live data; otherwise the news/markets calls will fail to that target.
 
-Latest production deployment: https://the-brief-ppzstfb4i-nkaringas-projects.vercel.app
+### Build
 
-### Automated news refresh
+```bash
+npm run build      # outputs static assets to dist/ (gitignored)
+npm run preview    # serve the production build locally
+```
 
-A GitHub Actions workflow (`.github/workflows/refresh-news.yml`) runs every 6 hours (and on manual dispatch) to:
+## Configuration
 
-1. Install `feedparser`
-2. Execute `python scraper/scraper.py`
-3. Commit/push updated `data/news.json` + `web/data/news.json` back to `main`
+| Variable | Required | Purpose |
+|----------|----------|---------|
+| `FINNHUB_API_KEY` | Optional | Live market quotes + symbol search. Without it, the ticker shows demo prices. Get a free key at [finnhub.io](https://finnhub.io/). |
 
-Each push from the workflow automatically triggers a new Vercel deployment, so the live site stays within ~6 hours of the latest feeds.
+Copy `.env.example` to `.env` for local use, or set the variable in the Vercel project
+settings for production.
 
-### Front-end features worth knowing
+## Customizing the news feeds
 
-- **Ticker** duplicates its content for a seamless scroll and pauses on hover.
-- **Filter pills** are generated dynamically from the JSON categories; the active state animates card transitions.
-- **Search** applies instant substring filtering within each card without blowing away category context.
-- **Error handling** shows a 503-style panel when the JSON is missing or malformed.
-- **Accessibility/safety** tricks: HTML escaping, URL validation, Content Security Policy, `rel="noopener"` on links.
-
-## Troubleshooting
-
-| Symptom | Likely cause | Fix |
-| --- | --- | --- |
-| Empty page / 503 block | `data/news.json` missing or invalid JSON | Re-run `python scraper/scraper.py` and ensure the server has read access to `data/`. |
-| Ticker/cards show stale data | Scraper not run recently | Automate the scraper or run it manually before serving the UI. |
-| New category doesnt show an icon | `CATEGORY_META` lacks a mapping | Add the category + icon/label in `web/script.js`. |
-| Links open unsafe protocols | `safeUrl` guards against non-http(s) links; ensure feeds return valid URLs. |
-
-## Next steps / ideas
-
-- Automate scraper execution (cron, GitHub Actions artifact, etc.).
-- Persist history for trend charts.
-- Add Telegram bot hooks using `telegram_config.json` (currently absent) if chat delivery is needed.
-- Deploy the static site + JSON to a CDN / S3 bucket with a serverless refresh job.
-
-That's everything the current codebase supports. Run the scraper, host the `web/` folder, and The Brief is live.
+Edit the `FEEDS` map in `api/news.js` to change the Google News search query for a
+category, or add/remove categories. Display labels and icons live in
+`src/categories.js` — add a matching entry there so new categories render with a proper
+name and icon (unknown categories fall back to a generic label/icon).
